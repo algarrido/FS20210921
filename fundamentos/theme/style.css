@@ -1,0 +1,10 @@
+@import url('variables.css');
+
+.error-msg {
+    color: var(--error-color,red);
+}
+
+input:active {
+    border-color: red;
+}
+
