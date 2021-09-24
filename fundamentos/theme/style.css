@@ -1,155 +1,150 @@
-@import url('variables.css');
+@import url("variables.css");
 
-
-.pag-principal footer{
-       height: 50px; 
-       background:black; 
-       width:100%; 
-       color: white;
-       text-align: center;
+html {
+  color: var(--letra-defecto, orange);
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  padding-left: 2em;
 }
-
-html{
-    color: var(--letra-defecto,orange);
-    font-family:  Calibri, 'Trebuchet MS', sans-serif;
-    padding-left: 2em;
+a {
+  color: var(--letra-defecto, orange);
 }
-a{
-    color: var(--letra-defecto,orange);
-}
-li{
-    display: inline;
-    padding-right: 1em;
+li {
+  display: inline;
+  padding-right: 1em;
 }
 .grid-container {
-    display: grid;
-    background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
-    
-    grid-gap: 10px;
-    grid-template-columns: auto auto auto auto auto auto;
-    padding: 2em;
-  }
-  .grid-container > article {
-    background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
-    padding: 20px 0;
-    font-size: 30px;
-    
-  }
-  .grid-container > footer {
-    background-color: black;
+  display: grid;
+  background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
 
-  }
-  .item4 {
-    grid-column: 1 / 5;
-  }
-  .item5 {
-    grid-column: 1/6;
-  }
-  .item3{
-      
-    grid-column: 1/ 4;
-  }
- 
-.form__login{
-    
-    color: gray;
-    border-color: orange;
-    padding-block: 1em;
-    border: 2px solid orange;
-    border-radius: 5px;
-    padding-left: 1em;
-    padding-right: 1em;
+  grid-gap: 10px;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding: 2em;
 }
-img{
- padding-left: 2em;
- border-radius: 8px;
- min-height: 290px;
-min-width: 290px;
+.grid-container > article {
+  background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
+  padding: 20px 0;
+  font-size: 30px;
 }
-picture > img:hover{
-    /*La idea es que cuando rote se muestre 
+.grid-container > footer {
+  background-color: var(--negro, black);;
+}
+.item4 {
+  grid-column: 1 / 5;
+}
+.item5 {
+  grid-column: 1/6;
+}
+.item3 {
+  grid-column: 1/ 4;
+}
+
+.pag-principal form {
+  color: var(--secundario, gray);;
+  border-color: var(--letra-defecto, orange);;
+  padding-block: 1em;
+  border: 2px solid var(--letra-defecto, orange);;
+  border-radius: 5px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.pag-principal img {
+  padding-left: 2em;
+  border-radius: 8px;
+  min-height: 290px;
+  min-width: 290px;
+}
+.pag-principal footer {
+  height: 50px;
+  background: var(--negro, black);;
+  width: 100%;
+  color: var(--blanco, white);
+  text-align: center;
+}
+.pag-principal picture > img:hover {
+  /*La idea es que cuando rote se muestre 
     la parte de atras de la caratula (descripcion de la paelicula)*/
-    transform: rotateX(150deg);
-  
+  transform: rotateX(150deg);
 }
 /*
-Presentacion
-*/
-.pag-presentacion body{
-    background-color: gray;
-    color: white;
+                    PRESENTACION
+                    */
+
+.pag-presentacion body {
+  background-color: var(--secundario, gray);
+  color: var(--blanco, white);
 }
-.pag-presentacion section{
-    display: flex;
-    padding-left: 1em;
-    
+.pag-presentacion section {
+  display: flex;
+  padding-left: 1em;
 }
 .pag-presentacion p {
-    padding-top: 9px;
-padding-left: 1em;
+  padding-top: 9px;
+  padding-left: 1em;
 }
-.pag-presentacion article{
-    
-    position:absolute; 
-    
-    color: white;
-    text-align: center;
-  
+.pag-presentacion article {
+  position: relative;
+
+  color: var(--blanco, white);
+  text-align: center;
+}
+.pag-presentacion footer {
+  padding-top: 5em;
 }
 /*
 Formulario
 */
 .pag-formulario h2 {
-  color: azure;
+  color: var(--letra-defecto, orange);
+  letter-spacing: 5px;
 }
 
-.pag-formulario div{
-    background-color: gray;
-    text-align: center;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    
-   }
-   
-   .pag-formulario body{
-    
-    background-color: darkgrey;
-   
-   }
-   
-   .pag-formulario footer{
-       height: 50px; 
-       background:black; 
-       width:100%; 
-       position:absolute; 
-       bottom:0; 
-       left:0; 
-       color: white;
-       text-align: center;
-     
-   }
-   .pag-formulario input{
-    border-radius: 10px;
-   }
+.pag-formulario div {
+  background-color: var(--secundario, gray);
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  letter-spacing: 5px;
+
+}
+
+.pag-formulario body {
+  background-color: white;
+}
+
+
+.pag-formulario footer {
+  height: 50px;
+  background: black;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: white;
+  text-align: center;
+}
+.pag-formulario input {
+  border-radius: 10px;
+}
 
 @media print {
-   input[type=submit], input[type=buttom], input[type=reset] {
-       display:none;
-   }
-   body > header{
-       display:none;
-   }
-   body{
-       font-size: 10pt;
-   }
-   img{
-       max-width: 200px;
-   }
+  input[type="submit"],
+  input[type="buttom"],
+  input[type="reset"] {
+    display: none;
+  }
+  body > header {
+    display: none;
+  }
+  body {
+    font-size: 10pt;
+  }
+  img {
+    max-width: 200px;
+  }
 }
 
-@media screen and (max-width:350px) {
-    img{
-        display:none;
-    }
+@media screen and (max-width: 350px) {
+  img {
+    display: none;
+  }
 }
-
