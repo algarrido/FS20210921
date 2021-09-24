@@ -12,6 +12,10 @@ li {
   display: inline;
   padding-right: 1em;
 }
+
+.pag-principal title{
+    color: var(--blanco, white);
+}
 .grid-container {
   display: grid;
   background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
@@ -108,18 +112,18 @@ Formulario
 }
 
 .pag-formulario body {
-  background-color: white;
+  background-color: var(--blanco, white);
 }
 
 
 .pag-formulario footer {
   height: 50px;
-  background: black;
+  background: var(--negro, black);
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
-  color: white;
+  color: var(--blanco, white);
   text-align: center;
 }
 .pag-formulario input {
