@@ -1,0 +1,25 @@
+.my-color {
+  ancho: 100px;
+  background-color: aqua;
+}
+
+.cabecera__menu {
+  background-color: aqua;
+}
+
+.cabecera__logo {
+  background-color: aqua;
+}
+
+.cabecera__login {
+  background-color: aqua;
+}
+
+body {
+  color: blue;
+}
+body div {
+  background-color: aqua;
+}
+
+/*# sourceMappingURL=kk.css.map */

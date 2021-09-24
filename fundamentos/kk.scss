@@ -1,0 +1,26 @@
+$color:blue;
+$propiedad:color;
+$ancho-definido:100px;
+$modulo:cabecera;
+.my-#{$propiedad}{
+    #{ancho}:$ancho-definido;
+    background-color: aqua;
+}
+.#{$modulo}__menu{
+    background-color: aqua;
+
+}
+.#{$modulo}__logo{
+    background-color: aqua;
+
+}
+.#{$modulo}__login{
+    background-color: aqua;
+
+}
+body{
+    #{$propiedad}: $color;
+    div{
+        background-color: aqua;
+    }
+}

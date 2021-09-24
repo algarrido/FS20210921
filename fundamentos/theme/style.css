@@ -1,10 +1,155 @@
 @import url('variables.css');
 
-.error-msg {
-    color: var(--error-color,red);
+
+.pag-principal footer{
+       height: 50px; 
+       background:black; 
+       width:100%; 
+       color: white;
+       text-align: center;
 }
 
-input:active {
-    border-color: red;
+html{
+    color: var(--letra-defecto,orange);
+    font-family:  Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 2em;
+}
+a{
+    color: var(--letra-defecto,orange);
+}
+li{
+    display: inline;
+    padding-right: 1em;
+}
+.grid-container {
+    display: grid;
+    background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
+    
+    grid-gap: 10px;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 2em;
+  }
+  .grid-container > article {
+    background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
+    padding: 20px 0;
+    font-size: 30px;
+    
+  }
+  .grid-container > footer {
+    background-color: black;
+
+  }
+  .item4 {
+    grid-column: 1 / 5;
+  }
+  .item5 {
+    grid-column: 1/6;
+  }
+  .item3{
+      
+    grid-column: 1/ 4;
+  }
+ 
+.form__login{
+    
+    color: gray;
+    border-color: orange;
+    padding-block: 1em;
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+img{
+ padding-left: 2em;
+ border-radius: 8px;
+ min-height: 290px;
+min-width: 290px;
+}
+picture > img:hover{
+    /*La idea es que cuando rote se muestre 
+    la parte de atras de la caratula (descripcion de la paelicula)*/
+    transform: rotateX(150deg);
+  
+}
+/*
+Presentacion
+*/
+.pag-presentacion body{
+    background-color: gray;
+    color: white;
+}
+.pag-presentacion section{
+    display: flex;
+    padding-left: 1em;
+    
+}
+.pag-presentacion p {
+    padding-top: 9px;
+padding-left: 1em;
+}
+.pag-presentacion article{
+    
+    position:absolute; 
+    
+    color: white;
+    text-align: center;
+  
+}
+/*
+Formulario
+*/
+.pag-formulario h2 {
+  color: azure;
+}
+
+.pag-formulario div{
+    background-color: gray;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+   }
+   
+   .pag-formulario body{
+    
+    background-color: darkgrey;
+   
+   }
+   
+   .pag-formulario footer{
+       height: 50px; 
+       background:black; 
+       width:100%; 
+       position:absolute; 
+       bottom:0; 
+       left:0; 
+       color: white;
+       text-align: center;
+     
+   }
+   .pag-formulario input{
+    border-radius: 10px;
+   }
+
+@media print {
+   input[type=submit], input[type=buttom], input[type=reset] {
+       display:none;
+   }
+   body > header{
+       display:none;
+   }
+   body{
+       font-size: 10pt;
+   }
+   img{
+       max-width: 200px;
+   }
+}
+
+@media screen and (max-width:350px) {
+    img{
+        display:none;
+    }
 }
 
