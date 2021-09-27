@@ -1,0 +1,48 @@
+/*# sourceMappingURL=style.scss.map */
+$propiedad: background-image;
+
+$bg-img: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
+$color_letra: orange !default;
+$color_enlace: yellow;
+$size: 1em;
+$moduloB: body;
+$moduloA: article;
+
+:root {
+  --principal-text-color: orange;
+  --secundario-background-color: black;
+  --secundario-text-color: white;
+}
+
+%comun {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#{$moduloB} {
+  #{$propiedad}: $bg-img;
+
+  color: var(--principal-text-color, black);
+  margin: $size * 2;
+  > header,
+  > footer {
+    @extend %comun;
+    background-color: var(--secundario-background-color, black);
+    color: var(--secundario-text-color, black);
+    padding: 10px;
+    align-items: stretch;
+  }
+}
+
+#{$moduloB} a {
+  color: $color_enlace;
+}
+
+@mixin color-invertido {
+  background-color: var(--secundario-background-color, black);
+  color: var(--secundario-text-color, white);
+}
+
+#{$moduloA} h1 {
+  @include color-invertido;
+}

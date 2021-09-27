@@ -1,0 +1,36 @@
+/*# sourceMappingURL=style.scss.map */
+:root {
+  --principal-text-color: orange;
+  --secundario-background-color: black;
+  --secundario-text-color: white;
+}
+
+body > header,
+body > footer {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+body {
+  background-image: url("https://cdn.webshopapp.com/shops/66605/files/264359252/3m-2080-opaco-gris-fondo.jpg");
+  color: var(--principal-text-color, black);
+  margin: 2em;
+}
+body > header,
+body > footer {
+  background-color: var(--secundario-background-color, black);
+  color: var(--secundario-text-color, black);
+  padding: 10px;
+  align-items: stretch;
+}
+
+body a {
+  color: yellow;
+}
+
+article h1 {
+  background-color: var(--secundario-background-color, black);
+  color: var(--secundario-text-color, white);
+}
+
+/*# sourceMappingURL=style_new.css.map */
