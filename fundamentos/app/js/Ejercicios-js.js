@@ -15,37 +15,35 @@ function numAleatorio() {
  introducir un número e informar si es igual, mayor o menor. 
  Hay un máximo de 10 intentos para encontrar el número que sea igual.* 
  */
-function adivinaNum(min, max) {
-    let num = Math.random() * (max - min) + min;
-    let numEntero= Math.round(num);
+function adivinaNum(min, max, respuesta) {
+    let a = new Aleatorio(min,max,respuesta);
     let intentos = 0;
-    let respuesta = 0;
-    alert("SEGUNDO EJERCICIO -- Numero generado: " + numEntero);
+    this.respuesta = respuesta;
+    
     while (intentos <= 10){ 
-        respuesta = prompt("Introduce un numero para adivinar" + " llevas " +intentos + " intentos");
-        if(respuesta >= 1 || respuesta <= 100){
-        if(numEntero==respuesta){
-                alert("Acertaste!"); 
-                intentos=11;
+        
+        if(this.respuesta >= 1 || this.respuesta <= 100){
+        if(this.numEntero == this.respuesta){
+               //acertaste
+                break;
                 }   
                 else{
-                    if(respuesta > numEntero){
+                    if(respuesta > this.numEntero){
                         
-                        alert("El numero a acertar es menor");
                         intentos++;
                     }
                     else{
                         
-                        alert("el numero a acertar es mayor"); 
+                        
                         intentos++;    
                     }
                 }
             }else{
-                 alert("Introduzca un valor valido");
                  intentos++; 
             }
         
-    }  
+    }
+    return this.numEntero;  
 
 }
 
@@ -159,35 +157,6 @@ class Aleatorio {
     get mostrarRespuesta(){
         return this.respuesta;
     }
-    nIntentos (){
-        this.intentos++;
-        return this.intentos;
-    }
-
-    verCoincidencia (respuesta, generado){
-
-        while(this.intentos <= 10){
-
-            if(respuesta >= 1 || respuesta <= 100){
-
-                if(generado==respuesta){
-                    break;
-                }   
-                        else{
-                            if(respuesta > generado){
-                               Aleatorio.nIntentos();
-                            }
-                            else{                          
-                                Aleatorio.nIntentos();    
-                            }
-                        }
-                    }else{
-
-                        Aleatorio.nIntentos();
-                    }
-        }
-        return generado;
-        
-    }
+    
    
 }

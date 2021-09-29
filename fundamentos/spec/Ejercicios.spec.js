@@ -112,20 +112,12 @@ describe('Ejercicios', () =>{
 
     fdescribe('Clase aleatorio', () =>{
         
-        //let a = new Aleatorio(1,101,10);
 
-        it('Numero adivinado', ()=> {
+        it('Espia', ()=> {
 
-       
-           cambiarNumeroGenerado(10);
-           cambiarRespuesta(10);
-
-           let resultado = mostrarRespuesta();
-           let numE = mostrarNumeroGenerado();
-
-           let coincidencia = verCoincidencia(resultado, numE);
-
-           expect(coincidencia).toBeTruthy();
+        let resul = adivinaNum(1,101,10);
+           
+        
 
         })
         
