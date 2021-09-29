@@ -49,9 +49,9 @@ fdescribe('Ejercicios', () =>{
             
             let size = 5;
 
-            let resul = devolverArray(1,5);
+            let resul = devolverArray(1,size);
 
-            expect(resul).toHaveSize(5);
+            expect(resul).toHaveSize(size);
 
         })
 
