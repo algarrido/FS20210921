@@ -134,3 +134,46 @@ function palindromo(str) {
     }    
 }
 
+class Aleatorio {
+    
+    constructor(min, max, respuesta) {
+        this.min = min;
+        this.max = max;
+        this.respuesta = respuesta;
+        this.num = Math.random() * (max - min);
+        this.numEntero = Math.round(this.num);
+        this.intentos = 0;
+    }
+
+    set cambiarNumeroGenerado(gener){
+        this.numEntero = gener;
+    }
+
+    set cambiarRespuesta(res){
+        this.respuesta = res;      
+    }
+    
+    get mostrarNumeroGenerado() { 
+        return this.numEntero; 
+    }
+    get mostrarRespuesta(){
+        return this.respuesta;
+    }
+    nIntentos (){
+            this.intentos++;
+            return this.intentos;
+        }
+        
+    verCoincidencia (respuesta, generado){
+        while(nIntentos() <= 10){
+            if(respuesta == generado){
+                    return true;
+            }else{
+                return false;
+                nIntentos();
+                }
+        }
+        
+    }
+   
+}
