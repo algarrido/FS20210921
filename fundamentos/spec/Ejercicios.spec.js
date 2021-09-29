@@ -43,7 +43,21 @@ fdescribe('Ejercicios', () =>{
 
     })
 
-    describe('Ejercicio 4', () =>{
+    describe('Ejercicio 3', () =>{
+        
+        it('nElementos', ()=> {
+            
+            let size = 5;
+
+            let resul = devolverArray(1,5);
+
+            expect(resul).toHaveSize(5);
+
+        })
+
+    })
+
+    describe('Ejercicio 5', () =>{
         
         it('DNI valido', ()=> {
 
@@ -54,7 +68,7 @@ fdescribe('Ejercicios', () =>{
 
         it('DNI invalido', ()=> {
 
-            let dniValido = validaDNI("206211513N");
+            let dniValido = validaDNI("20621513Y");
             expect(dniValido).toBeFalse();
 
         })

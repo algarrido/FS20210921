@@ -58,6 +58,7 @@ function devolverArray(principio,fin){
     let elementos = ['valor1', 'valor2', 'valor3', 'valor4', 'valor5'];
     let eleSacados = elementos.slice(principio, fin);
     alert(eleSacados);
+    return elementos;
 }
 
 /**
@@ -82,6 +83,7 @@ function numerosPrimos(){
     
     console.log(primos);
     alert(primos);
+    return primos;
       
 }
 /**
@@ -103,14 +105,14 @@ function validaDNI(dni){
         letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
         letra = letra.substring(numero, numero+1);
         if (letra != letr) {
-            //alert('Dni erroneo, la letra del NIF no se corresponde');
+            alert('Dni erroneo, la letra del NIF no se corresponde');
             return false;
         }else{
-            //alert('Dni correcto');
+            alert('Dni correcto');
             return true;
         }
     }else{
-            //alert('Dni erroneo, formato no válido');
+            alert('Dni erroneo, formato no válido');
             return false;
         }
 }
