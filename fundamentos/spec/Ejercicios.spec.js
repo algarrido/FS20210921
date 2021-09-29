@@ -35,8 +35,8 @@ fdescribe('Ejercicios', () =>{
 
         it('Es indefinido', ()=> {
 
-            let ind = undefined;
-            expect(ind).toBeFalsy;
+            let ind ;
+            expect(ind).toBeUndefined;
 
         })
 
@@ -52,6 +52,16 @@ fdescribe('Ejercicios', () =>{
             let resul = devolverArray(1,size);
 
             expect(resul).toHaveSize(size);
+
+        })
+
+    })
+
+    describe('Ejercicio 4', () =>{
+        
+        it('esPrimo', ()=> {
+           let primos = 7;
+           
 
         })
 

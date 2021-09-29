@@ -25,8 +25,8 @@ function adivinaNum(min, max) {
         respuesta = prompt("Introduce un numero para adivinar" + " llevas " +intentos + " intentos");
         if(respuesta >= 1 || respuesta <= 100){
         if(numEntero==respuesta){
-                        alert("Acertaste!"); 
-                        intentos=11;
+                alert("Acertaste!"); 
+                intentos=11;
                 }   
                 else{
                     if(respuesta > numEntero){
