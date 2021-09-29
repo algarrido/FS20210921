@@ -165,15 +165,28 @@ class Aleatorio {
     }
 
     verCoincidencia (respuesta, generado){
+
         while(this.intentos <= 10){
-            if(respuesta == generado){
-                    return true;
-            }else{
-                Aleatorio.nIntentos();
-                return false;
-                
-                }
+
+            if(respuesta >= 1 || respuesta <= 100){
+
+                if(generado==respuesta){
+                    break;
+                }   
+                        else{
+                            if(respuesta > generado){
+                               Aleatorio.nIntentos();
+                            }
+                            else{                          
+                                Aleatorio.nIntentos();    
+                            }
+                        }
+                    }else{
+
+                        Aleatorio.nIntentos();
+                    }
         }
+        return generado;
         
     }
    
