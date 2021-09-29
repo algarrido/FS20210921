@@ -160,17 +160,18 @@ class Aleatorio {
         return this.respuesta;
     }
     nIntentos (){
-            this.intentos++;
-            return this.intentos;
-        }
-        
+        this.intentos++;
+        return this.intentos;
+    }
+
     verCoincidencia (respuesta, generado){
-        while(nIntentos() <= 10){
+        while(this.intentos <= 10){
             if(respuesta == generado){
                     return true;
             }else{
+                Aleatorio.nIntentos();
                 return false;
-                nIntentos();
+                
                 }
         }
         

@@ -5,7 +5,6 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-.jasmine/*
 
 # Logs
 logs
@@ -50,6 +49,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+jasmine/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/

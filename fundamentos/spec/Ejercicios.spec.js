@@ -1,4 +1,4 @@
-fdescribe('Ejercicios', () =>{
+describe('Ejercicios', () =>{
     describe('Ejercicio 1', () =>{
 
         it('Es entero', ()=> {
@@ -60,8 +60,9 @@ fdescribe('Ejercicios', () =>{
     describe('Ejercicio 4', () =>{
         
         it('esPrimo', ()=> {
-           let primos = 7;
-           
+
+           let prueba = 7%2;
+           expect(prueba).toBeTruthy();
 
         })
 
@@ -107,5 +108,41 @@ fdescribe('Ejercicios', () =>{
             expect(p).toBeTrue;
 
         })
+    })
+
+    fdescribe('Clase aleatorio', () =>{
+        
+        let a = new Aleatorio(1,101,10);
+
+        it('Numero adivinado', ()=> {
+
+       
+           a.cambiarNumeroGenerado(10);
+           a.cambiarRespuesta(10);
+
+           let resultado = a.mostrarRespuesta();
+           let numE = a.mostrarNumeroGenerado();
+
+           let coincidencia = a.verCoincidencia(resultado, numE);
+
+           expect(coincidencia).toBeTruthy();
+
+        })
+        
+        it('Numero incorrecto', ()=> {
+      /*  Aleatorio = a
+        
+            cambiarNumeroGenerado(10);
+            cambiarRespuesta(15);
+ 
+            let resultado = mostrarRespuesta();
+            let numE = mostrarNumeroGenerado();
+ 
+            let coincidencia = verCoincidencia(resultado, numE);
+ 
+            expect(coincidencia).toBeTrue();
+ */
+         }) 
+
     })
 })
