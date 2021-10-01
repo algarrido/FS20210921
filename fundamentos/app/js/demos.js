@@ -1,4 +1,4 @@
-function suma(a, b){
+/*function suma(a, b){
     return a + b;
 }
 
@@ -12,4 +12,4 @@ function kk(){
     if(a = b) {
         alert('sale')
     }
-}
+}*/

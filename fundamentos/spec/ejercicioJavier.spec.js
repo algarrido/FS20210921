@@ -1,4 +1,4 @@
-fdescribe('Verificacion de los ejercicios de JavaScript', () => {
+xdescribe('Verificacion de los ejercicios de JavaScript', () => {
     describe('Ejercicio 1: Crear una función que devuelva un numero aleatorio', () => {
         [[1, 100], [-10, -1] /*, [0, 10] */].forEach(caso => {
             it(`Valor entre ${caso[0]} mas ${caso[1]}`, () => {

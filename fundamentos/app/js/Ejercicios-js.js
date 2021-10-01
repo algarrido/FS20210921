@@ -1,7 +1,7 @@
 /** 
 Crear una función que devuelva un numero aleatorio (Math.random()) dentro del rango dado. 
  */
-function numAleatorio() {
+/*function numAleatorio() {
     let min = 0;
     let max = 11;
     let num = Math.random() * (max - min);
@@ -15,6 +15,7 @@ function numAleatorio() {
  introducir un número e informar si es igual, mayor o menor. 
  Hay un máximo de 10 intentos para encontrar el número que sea igual.* 
  */
+/*
 function adivinaNum(min, max, respuesta) {
     let a = new Aleatorio(min,max,respuesta);
     let intentos = 0;
@@ -46,23 +47,23 @@ function adivinaNum(min, max, respuesta) {
     return this.numEntero;  
 
 }
-
+*/
 /**
  * Crear una función que devuelva un array con el numero de elementos 
  * indicado, inicializados al valor suministrado.
  */
-
+/*
 function devolverArray(principio,fin){
     let elementos = ['valor1', 'valor2', 'valor3', 'valor4', 'valor5'];
     let eleSacados = elementos.slice(principio, fin);
     alert(eleSacados);
     return elementos;
 }
-
+*/
 /**
  * Crear una función que devuelva un determinado número de números primos.
  */
-function numerosPrimos(){
+/*function numerosPrimos(){
 
      let elementos = prompt("Introduce un numero para mostrar los primos anterior a este");
      let primos = [];     
@@ -83,11 +84,11 @@ function numerosPrimos(){
     alert(primos);
     return primos;
       
-}
+}*/
 /**
  * Crear una función que valide un NIF
  */
-function validaDNI(dni){
+/*function validaDNI(dni){
     let numero, letr, letra;
     let expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
     
@@ -114,14 +115,14 @@ function validaDNI(dni){
             return false;
         }
 }
-
+*/
 /**
  * Definir una función que determine si la cadena de texto que se
  * le pasa como parámetro es un palíndromo, es decir, si se lee de 
  * la misma forma desde la izquierda y desde la derecha. 
  * Ejemplo de palíndromo complejo: "La ruta nos aporto otro paso natural".
  */
-
+/*
 function palindromo(str) {
     const strReversed = str.split("").reverse().join("")
   
@@ -130,8 +131,8 @@ function palindromo(str) {
     }else{
         return false;
     }    
-}
-
+}*/
+/*
 class Aleatorio {
     
     constructor(min, max, respuesta) {
@@ -159,4 +160,4 @@ class Aleatorio {
     }
     
    
-}
+}*/

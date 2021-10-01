@@ -1,31 +1,74 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ejercicios JS</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Mira la consola</h1>
+    <form id="miForm">
+      <label for="txtNumero" id="lbPrompt" hidden></label>
+      <input type="number" name="numero" id="txtNumero" hidden />
+      <button id="btnJugar">Empezar</button>
+      <output id="txtMensaje"></output>
+    </form>
 
-    <script src="js/ejercicios-js.js"></script>
+    <script src="js/ejercicioJavier.js"></script>
     <script>
-        // console.log(aleatorio(1, 100))
-        // JuegoDelNumero();
+      //output-marcador para hacer salidas por codigo
+      // console.log(aleatorio(1, 100))
+      // JuegoDelNumero();
+      (function () {
+        var juego = new JuegoConClase(10, 100);
 
-        var juego = new Juego(10, 100);
-        // var juego = new JuegoConClase(10, 100);
+        btnJugar = document.querySelector("#btJugar");
+        txtNumero = document.querySelector("#txtNumero");
+        txtMensaje = document.querySelector("#txtMensaje");
+        lbPrompt = document.querySelector("#lbPrompt");
+
+        function Empezar(ev) {
+          juego.Inicializa();
+          lbPrompt.textContent = `Dame tu número ${juego.intentos +1} de ${juego.DameMaxIntentos()}:`
+          lbPrompt.hidden = false;
+          txtNumero.hidden = false;
+          txtNumero.focus();
+          btnJugar.textContent = "Probar";
+          btnJugar.RemoveEventListener("click", Empezar);
+          ev.preventDefault();
+        }
+        btnJugar.addEventListener("click", Empezar);
+
+        document.forms.miForm.addEventListener("submit", (ev) => {
+          ev.preventDefault();
+          try {
+            txtMensaje.textContent = juego.PruebaCon(+numeroLeido);
+          } catch (error) {
+            txtMensaje.textContent = error.message;
+          }
+          if (juego.intentos >= 10 || juego.encontrado) {
+            lbPrompt.hidden = true;
+            txtNumero.hidden = true;
+            btnJugar.value = "Empezar";
+            btnJugar.addEventListener("click", Empezar);
+          }
+        });
+      })();
+
+      /*    var juego = new Juego(10, 100);
+         var juego = new JuegoConClase(10, 100);
         do {
             do {
                 var numeroLeido = prompt(`Dame tu número ${juego.intentos + 1} de ${juego.DameMaxIntentos()}:`);
-                if (numeroLeido === null)
-                    break;
+           
+              if (numeroLeido === null)
+             
+                  break;
                 if (isNaN(parseInt(numeroLeido))) {
                     alert('No es un número valido');
-                    continue;
+                   continue;
                 }
                 try {
                     juego.PruebaCon(+numeroLeido);
@@ -38,8 +81,7 @@
             if (!confirm('¿Otra?'))
                 break;
             juego.Inicializa();
-        } while (true);
+        } while (true);*/
     </script>
-</body>
-
+  </body>
 </html>

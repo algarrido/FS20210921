@@ -1,4 +1,4 @@
-function aleatorio(inicio, fin) {
+/*function aleatorio(inicio, fin) {
     if (!inicio || isNaN(parseInt(inicio.toString()))) throw new Error('Falta el valor inicial')
     if (!fin || isNaN(parseInt(fin.toString()))) throw new Error('Falta el valor final')
     if (inicio >= fin) throw new Error('El valor final debe ser mayor que el valor inicial')
@@ -218,4 +218,4 @@ class JuegoConClase {
     get maxIntentos() { return this.#maxIntentos; };
 
     get intento() { return this.intentos + 1; }
-}
+}*/

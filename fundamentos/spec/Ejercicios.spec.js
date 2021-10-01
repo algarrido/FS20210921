@@ -1,4 +1,4 @@
-describe('Ejercicios', () =>{
+xdescribe('Ejercicios', () =>{
     describe('Ejercicio 1', () =>{
 
         it('Es entero', ()=> {
@@ -110,7 +110,7 @@ describe('Ejercicios', () =>{
         })
     })
 
-    fdescribe('Clase aleatorio', () =>{
+    describe('Clase aleatorio', () =>{
         
 
         it('Espia', ()=> {
