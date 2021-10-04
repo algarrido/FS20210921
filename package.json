@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "jasmine-core": "^3.9.0",
+    "tslint": "^6.1.3"
+  }
+}
