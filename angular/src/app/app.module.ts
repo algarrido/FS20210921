@@ -8,6 +8,8 @@ import { DemosComponent } from './demos/demos.component';
 import { FormsModule } from '@angular/forms';
 import { ElipsisPipe } from './compartidos/cadenas.pipe';
 import { SizerComponent } from './compartidos/sizer.component';
+import { DinamicoComponent } from './dinamico/dinamico.component';
+import { CalculadoraComponent } from './calculadora/calculadora.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { SizerComponent } from './compartidos/sizer.component';
     HomeComponent,
     DemosComponent,
     ElipsisPipe,
-    SizerComponent
+    SizerComponent,
+    DinamicoComponent,
+    CalculadoraComponent
   ],
   imports: [
     BrowserModule, FormsModule,
