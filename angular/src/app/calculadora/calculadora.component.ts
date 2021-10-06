@@ -6,9 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./calculadora.component.scss'],
 })
 export class CalculadoraComponent implements OnInit {
-  currentTotal: number = 0;
-  buffer: string = '0';
-  previousOperator: string | null = null;
+
+  public currentTotal: number = 0;
+  public buffer: string = '0';
+  public previousOperator: string | null = null;
 
   constructor() {}
 
@@ -48,6 +49,14 @@ export class CalculadoraComponent implements OnInit {
       this.buffer = value;
     } else {
       this.buffer += value;
+    }
+  }
+
+  public putDecimal():void{
+    if (this.buffer==='0') {
+        this.buffer = '0.';
+    } else {
+        this.buffer += '.';
     }
   }
 
