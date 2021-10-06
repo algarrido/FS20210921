@@ -3,27 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { DemosComponent } from './demos/demos.component';
 import { FormsModule } from '@angular/forms';
-import { ElipsisPipe } from './compartidos/cadenas.pipe';
-import { SizerComponent } from './compartidos/sizer.component';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
+import { MyCoreModule } from 'src/lib/my-core';
+import { SecurityModule } from './security/security.module';
+import { MainModule } from './main/main.module';
+import { CommonServicesModule } from './common-services/common-services.module';
+import { ConfigModule } from './config/config.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     DemosComponent,
-    ElipsisPipe,
-    SizerComponent,
     DinamicoComponent,
     CalculadoraComponent
   ],
   imports: [
     BrowserModule, FormsModule,
-    AppRoutingModule
+
+    MyCoreModule,
+    SecurityModule,
+    MainModule,
+    CommonServicesModule,
+
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
