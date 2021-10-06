@@ -7,11 +7,12 @@ import { DemosComponent } from './demos/demos.component';
 import { FormsModule } from '@angular/forms';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
-import { MyCoreModule } from 'src/lib/my-core';
+import { ERROR_LEVEL, LoggerService, MyCoreModule } from 'src/lib/my-core';
 import { SecurityModule } from './security/security.module';
 import { MainModule } from './main/main.module';
 import { CommonServicesModule } from './common-services/common-services.module';
 import { ConfigModule } from './config/config.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,10 @@ import { ConfigModule } from './config/config.module';
     AppRoutingModule,
 
   ],
-  providers: [],
+  providers: [
+    LoggerService,
+    {provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

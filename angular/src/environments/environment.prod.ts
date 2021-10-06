@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  ERROR_LEVEL: 1, //cuantos log se ven
 };

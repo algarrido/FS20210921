@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ERROR_LEVEL, LoggerService } from 'src/lib/my-core';
 
 @Component({
   selector: 'app-demos',
   templateUrl: './demos.component.html',
-  styleUrls: ['./demos.component.scss']
+  styleUrls: ['./demos.component.scss'],
+  providers: [LoggerService,{provide:ERROR_LEVEL,useValue:1},],
 })
 export class DemosComponent implements OnInit {
   private nombre:string= "mundo";
@@ -20,7 +22,7 @@ export class DemosComponent implements OnInit {
   estetica = {importante: true, error: false, urgente: true};
   fontSize= 14;
 
-  constructor() { }
+  constructor(private log:LoggerService) { }
 
 
   public get Nombre():string{
@@ -29,11 +31,16 @@ export class DemosComponent implements OnInit {
   public set Nombre(value:string){
     if(this.nombre === value) return;
     this.nombre = value;
+
+
   }
 
 
   public saluda():void{
     this.resultado = `Hola ${this.nombre}`;
+    this.log.info(this.nombre);
+    this.log.error(this.nombre);
+    this.log.warn(this.nombre);
   }
   public despide():void{
     this.resultado = `Adios ${this.nombre}`;

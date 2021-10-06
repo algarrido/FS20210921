@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggerService } from 'src/lib/my-core';
 
 @Component({
   selector: 'app-calculadora',
@@ -11,7 +12,8 @@ export class CalculadoraComponent implements OnInit {
   public buffer: string = '0';
   public previousOperator: string | null = null;
 
-  constructor() {}
+  constructor(private log:LoggerService) {}
+
 
   ngOnInit(): void {}
 
@@ -98,6 +100,7 @@ export class CalculadoraComponent implements OnInit {
   public flushOperation(internalBuffer: number): void {
     if (this.previousOperator === '+') {
       this.suma(internalBuffer, this.currentTotal);
+      this.log.info("");
     } else if (this.previousOperator === '-') {
       this.resta(internalBuffer, this.currentTotal);
     } else if (this.previousOperator === 'x') {
