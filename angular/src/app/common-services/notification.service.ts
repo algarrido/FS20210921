@@ -48,26 +48,26 @@ export class NotificationService {
 
   public add(msg: string, type: NotificationType = NotificationType.error) {
 
-
-    if (!msg || msg === '') {
+ if (!msg || msg === '') {
       this.log.error('Falta el mensaje de notificación.');
       return;
     }
-    const id = this.HayNotificaciones
-      ? this.listado[this.listado.length - 1].Id + 1
-      : 1;
+    const id = this.HayNotificaciones ?
+    (this.listado[this.listado.length - 1].Id + 1) : 1;
 
-      //modificacion
-      const n = new Notification(id, msg, type);
-      this.listado.push(n);
-      this.notificacion$.next(n);
+     //modificacion
+     const n = new Notification(id, msg, type);
+     this.listado.push(n);
+     this.notificacion$.next(n);
 
 
-    // Redundancia: Los errores también se muestran en consola
+   // Redundancia: Los errores también se muestran en consola
+
     if (type === NotificationType.error) {
       this.log.error(`NOTIFICATION: ${msg}`);
     }
   }
+
   public remove(index: number) {
     if (index < 0 || index >= this.listado.length) {
       this.log.error('Index out of range.');

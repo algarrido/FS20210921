@@ -10,7 +10,7 @@
 
 <!--AÑADIDO DEL TUTORIAL-->
 <p>
-  <input type="button" class="btn btn-danger" value="Error" (click)="vm.add('Esto es una notificación de error')" >
+  <input type="button" class="btn btn-danger" value="Error" (click)="vm.add('Esto es una notificación de error',vm.NotificationType.error)" >
   <input type="button" class="btn btn-warning" value="Warn" (click)="vm.add('Esta notificación es un aviso', vm.NotificationType.warn)" >
  </p>
 

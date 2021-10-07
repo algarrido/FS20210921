@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoggerService } from 'src/lib/my-core';
+import { NotificationService, NotificationType } from '../common-services/notification.service';
 
 @Component({
   selector: 'app-calculadora',
@@ -12,7 +13,7 @@ export class CalculadoraComponent implements OnInit {
   public buffer: string = '0';
   public previousOperator: string | null = null;
 
-  constructor(private log:LoggerService) {}
+  constructor(private log:LoggerService,private notify: NotificationService) {}
 
 
   ngOnInit(): void {}
@@ -20,6 +21,8 @@ export class CalculadoraComponent implements OnInit {
   public handleSymbol(value: string) {
     switch (value) {
       case 'C':
+
+        //this.notify.add('Limpiado', NotificationType.warn);//prueba notificacion
         this.buffer = '0';
         this.currentTotal = 0;
         this.previousOperator = null;

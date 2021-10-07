@@ -50,9 +50,9 @@ export class DemosComponent implements OnInit, OnDestroy {
   }
   public saluda(): void {
     this.resultado = `Hola ${this.nombre}`;
-    this.log.info(this.nombre);
-    this.log.error(this.nombre);
-    this.log.warn(this.nombre);
+  //  this.log.info(this.nombre);
+  //  this.log.error(this.nombre);
+  //  this.log.warn(this.nombre);
   }
   public despide(): void {
     this.resultado = `Adios ${this.nombre}`;

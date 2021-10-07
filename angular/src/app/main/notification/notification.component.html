@@ -2,11 +2,14 @@
   <div
     class="notificacion"
     [class.error]="item.Type === VM.NotificationType.error"
-    *ngFor="let item of VM.Listado; let i = index">
+    *ngFor="let item of VM.Listado; let i = index"
+  >
     {{ item.Message }}
-    <button  type="button" (click)="VM.remove(i)">X</button>
+    <button type="button" (click)="VM.remove(i)">X</button>
   </div>
-</div>
-<div class="center">
-  <button class="btn btninfo" type="button" (click)="VM.clear()">Cerrar</button>
+  <div class="center">
+    <button class="btn btninfo" type="button" (click)="VM.clear()">
+      Cerrar
+    </button>
+  </div>
 </div>
