@@ -13,13 +13,15 @@ import { MainModule } from './main/main.module';
 import { CommonServicesModule } from './common-services/common-services.module';
 import { ConfigModule } from './config/config.module';
 import { environment } from 'src/environments/environment';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DemosComponent,
     DinamicoComponent,
-    CalculadoraComponent
+    CalculadoraComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule, FormsModule,
