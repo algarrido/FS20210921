@@ -14,6 +14,7 @@ import { ConfigModule } from './config/config.module';
 import { environment } from 'src/environments/environment';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
+import { CardComponent } from './common-component/card/card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ClienteFormularioComponent } from './cliente-formulario/cliente-formula
     DinamicoComponent,
     CalculadoraComponent,
     FormularioComponent,
-    ClienteFormularioComponent
+    ClienteFormularioComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule, FormsModule,

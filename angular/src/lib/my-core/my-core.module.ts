@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SizerComponent } from './components/sizer.component';
 import { PIPES_CADENAS } from './pipes/cadenas.pipe';
 import { FormButtonsModule } from 'src/app/form-buttons';
-import { ShowErrorsMessagesModule } from 'src/app/show-errors-messages';
+import { ShowErrorsMessagesComponent } from 'src/app/show-errors-messages';
+import { MIS_VALIDADORES } from './directives/validadores.directive';
+import { DIRECTIVAS_ATRIBUTO } from './directives/atributos.directive';
 
 
 
@@ -12,7 +14,9 @@ import { ShowErrorsMessagesModule } from 'src/app/show-errors-messages';
     SizerComponent,
     PIPES_CADENAS,
     FormButtonsModule,
-    ShowErrorsMessagesModule
+    ShowErrorsMessagesComponent,
+    MIS_VALIDADORES,
+    DIRECTIVAS_ATRIBUTO
 
   ],
 
@@ -20,8 +24,8 @@ import { ShowErrorsMessagesModule } from 'src/app/show-errors-messages';
     SizerComponent,
     PIPES_CADENAS,
     FormButtonsModule,
-    ShowErrorsMessagesModule
-
+    ShowErrorsMessagesComponent,
+    MIS_VALIDADORES,DIRECTIVAS_ATRIBUTO
   ],
 
   imports: [

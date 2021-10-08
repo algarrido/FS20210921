@@ -1,52 +1,76 @@
 <form #miForm="ngForm">
-  <div>
-    <label for='id'>Código: </label>
-    <input type='number' id='id' name='id' [(ngModel)]="cli.Elemento.id" #id='ngModel' required min='0' >
-    <output class="error" [hidden]="!id.hasError('required') || miForm.pristine"><myErrors [message]="errorObligatorio"></myErrors></output>
+  <div class="row">
+    <div class="col-md-2">
+      <label class="form-label" for="customer_id">Código</label>
+      <input type="number" class="form-control" [class.is-invalid]="customer_id.invalid" id="customer_id"
+        name="customer_id" [(ngModel)]="vm.Elemento.customer_id" #customer_id="ngModel" placeholder="Código del usuario"
+        required>
+      <myErrors [errors]="customer_id.errors"></myErrors>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label" for="store_id">Tienda</label>
+      <select id="store_id" class="form-select" name="store_id" [(ngModel)]="vm.Elemento.store_id" #store_id="ngModel">
+        <option value="1">Tienda 1</option>
+        <option value="2">Tienda 2</option>
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="first_name">Nombre</label>
+      <input type="text" class="form-control" [class.is-invalid]="first_name.invalid" id="first_name" name="first_name"
+        [(ngModel)]="vm.Elemento.first_name" #first_name="ngModel" required minlength="2" maxlength="50">
+      <myErrors [errors]="first_name.errors"></myErrors>
 
-  </div>
-  <div>
-    <label for='nombre'>Nombre: </label>
-    <input type='text' id='nombre' name='nombre' [(ngModel)]="cli.Elemento.nombre" #nombre='ngModel'
-    required minlength="2" maxlength="10">
-
-    <output class="error" [hidden]="!nombre.errors?.minlength && !nombre.errors?.maxlength"><myErrors [message]="errorTamano"></myErrors></output>
-
-  </div>
-  <div>
-    <label for='apellidos'>Apellidos: </label>
-    <input type='text' id='apellidos' name='apellidos' [(ngModel)]="cli.Elemento.apellidos" #apellidos='ngModel'
-    minlength="2" maxlength="10">
-    <output class="error" [hidden]="!apellidos.errors?.minlength && !apellidos.errors?.maxlength"><myErrors [message]="errorTamano"></myErrors></output>
-
-  </div>
-  <div>
-    <label for='correo'>Correo: </label>
-    <input type='email' id='correo' name='correo' [(ngModel)]="cli.Elemento.correo" #correo='ngModel'
-    maxlength="100" email>
-    <output class="error" [hidden]="!correo.errors?.email"><myErrors [message]="errorEmail"></myErrors></output>
-
-  </div>
-
-  <div>
-      <label for="direccion">Dirección</label>
-      <div>
-          <input type="radio" id="direccion" name="direccion" checked value="1"  [(ngModel)]="cli.Elemento.direccion" #direccion='ngModel'>
-          Casa
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="last_name">Apellidos</label>
+      <input type="text" class="form-control" [class.is-invalid]="last_name.invalid" id="last_name" name="last_name"
+        [(ngModel)]="vm.Elemento.last_name" #last_name="ngModel" minlength="2" maxlength="50">
+      <myErrors [errors]="last_name.errors"></myErrors>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label" for="email">Correo</label>
+      <input type="email" class="form-control" [class.is-invalid]="email.invalid" id="email" name="email"
+        [(ngModel)]="vm.Elemento.email" #email="ngModel" placeholder="Correo electrónico" required>
+      <myErrors [errors]="email.errors"></myErrors>
+    </div>
+    <fieldset class="col-md-3">
+      <legend class="form-label" for="address_id">Dirección</legend>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="address_id1" name="address_id"
+          [(ngModel)]="vm.Elemento.address_id" checked value="1">
+        <label class="form-check-label" for="address_id1">Casa</label>
       </div>
-      <div>
-          <input type="radio" id="direccion" name="direccion" value="2"[(ngModel)]="cli.Elemento.direccion" #direccion='ngModel' >
-          Trabajo
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="address_id2" name="address_id"
+          [(ngModel)]="vm.Elemento.address_id" checked value="2">
+        <label class="form-check-label" for="address_id2">Trabajo</label>
       </div>
+    </fieldset>
+    <div class="col-md-3">
+      <label class="form-label" for="create_date">F. Creación</label>
+      <input type="date" class="form-control" [class.is-invalid]="create_date.invalid" id="create_date"
+        name="create_date" [(ngModel)]="vm.Elemento.create_date" #create_date="ngModel">
+      <myErrors [errors]="create_date.errors"></myErrors>
+    </div>
+    <div class="col-md-3">
+      <label class="form-label" for="last_update">Última modificacion</label>
+      <input type="date" class="form-control" [class.is-invalid]="last_update.invalid" id="last_update"
+        name="last_update" [(ngModel)]="vm.Elemento.last_update" #last_update="ngModel" min="2021-11-01">
+      <myErrors [errors]="last_update.errors"></myErrors>
+    </div>
+    <div class="col-md-3 form-check form-switch">
+      <div class="position-relative top-50 start-100 translate-middle">
+        <input type="checkbox" class="form-check-input" id="active" name="active" [(ngModel)]="vm.Elemento.active"
+          value="true" checked>
+        <label class="form-check-label" for="active">Activo</label>
+      </div>
+    </div>
   </div>
-  <div>
-      <label for="activo">Activo</label>
-      <input type="checkbox" id="activo" name="active" value="true" checked [(ngModel)]="cli.Elemento.activo" #activo='ngModel'>
+
+  <div class="row">
+
+  <myButtons (send)="vm.send()" [send-disabled]="miForm.invalid" (cancel)="vm.cancel()"></myButtons>
+
   </div>
-  <div>
-      <label for="create_date">F. Creación</label>
-      <input type="date" id="create_date" name="create_date" [(ngModel)]="cli.Elemento.activo" #activo='ngModel'>
-  </div>
-  <myButtons (send)="cli.send()" (cancel)="cli.cancel()"></myButtons>
 
 </form>
