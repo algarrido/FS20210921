@@ -13,9 +13,9 @@ import { CommonServicesModule } from './common-services/common-services.module';
 import { environment } from 'src/environments/environment';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
-import { CardComponent } from './common-component/card/card.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ContactosModule } from './contactos/modulo.module';
+import { CommonComponentModule } from './common-component';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { ContactosModule } from './contactos/modulo.module';
     CommonServicesModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonComponentModule,
 
   ],
   providers: [
