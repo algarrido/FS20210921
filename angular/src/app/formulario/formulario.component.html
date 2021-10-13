@@ -3,21 +3,21 @@
   <input type="button" value="edit" (click)="vm.edit()" >
   <input type="button" value="borrar" (myWinConfirm)="vm.delete()" myWinConfirmMessage="Una vez borrados ..." >
 </div>
-<form #miForm="ngForm">
+<form #miForm="ngForm" cross-field-validation>
   <div>
     <label for="id">Código: </label>
     <ng-container *ngIf="vm.isAdd">
       <input type="number" id="id" name="id" [(ngModel)]="vm.Elemento.id" #id="ngModel" required min="0" >
       <output class="error" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio. </output>
     </ng-container>
-    <ng-container *myUnless="vm.IsAdd">{{vm.Elemento.id}}</ng-container>
+    <ng-container *myUnless="vm.isAdd">{{vm.Elemento.id}}</ng-container>
   </div>
   <div>
     <label for="nombre">Nombre</label>
     <input type="text" id="nombre" name="nombre" [(ngModel)]="vm.Elemento.nombre" #nombre="ngModel"
-      required minlength="2" maxlength="10" uppercase >
-    <myErrors [errors]="nombre.errors"></myErrors>
-    <!-- <output class="error" [myShowErrors]="nombre.errors"></output> -->
+      required minlength="2" maxlength="10" uppercase [class.is-invalid]="nombre.invalid" >
+   <!-- <output class="invalid-feedback" [myShowErrors]="nombre.errors"></output> -->
+    <!-- <app-show-errors-messages [errors]="nombre.errors"></app-show-errors-messages> -->
     <!-- <output class="error" [hidden]="!nombre.errors?.required">Es obligatorio. </output>
     <output class="error" [hidden]="!nombre.errors?.minlength && !nombre.errors?.maxlength">Debe tener entre 2 y 10 letras. </output>
     {{ nombre.errors | json }} -->
@@ -25,7 +25,7 @@
   <div>
     <label for="apellidos">Apellidos</label>
     <input type="text" id="apellidos" name="apellidos" [(ngModel)]="vm.Elemento.apellidos" #apellidos="ngModel"
-      minlength="2" maxlength="10" equalsTo="nombre" >
+      minlength="2" maxlength="10" distinctTo="nombre" >
     <!-- <output class="error" [hidden]="!apellidos.errors?.minlength && !apellidos.errors?.maxlength">Debe tener entre 2 y 10 letras. </output> -->
     <myErrors [errors]="apellidos.errors"></myErrors>
   </div>
@@ -39,7 +39,7 @@
   <div>
     <label for="edad">Edad</label>
     <input type="number" id="edad" name="edad" [(ngModel)]="vm.Elemento.edad" #edad="ngModel"
-      min="16" max="67" greater_than="edad">
+      min="16" max="67">
     <output class="error" [show]="edad.errors?.min">Debe tener al menos {{edad.errors?.min?.min}} años. </output>
     <output class="error" [hidden]="!edad.errors?.max">Debe tener {{edad.errors?.max?.max}} años como máximo. </output>
   </div>
@@ -48,6 +48,14 @@
     <input type="text" id="dni" name="dni" [(ngModel)]="vm.Elemento.dni" #dni="ngModel" nif>
     <myErrors [errors]="dni.errors"></myErrors>
   </div>
+  <fieldset>
+    <legend>Comparaciones</legend>
+  <!--  <input type="date" name="origen" [(ngModel)]="test.origen" #origen="ngModel">
+     <output class="error" [myShowErrors]="origen.errors"></output>
+    <input type="date" name="destino" [(ngModel)]="test.destino" #destino="ngModel" greaterThan="origen" greaterThanMessage="La fecha de inicio ...">
+    <output class="error" [myShowErrors]="destino.errors"></output>
+    {{destino.errors | json}}-->
+  </fieldset>
   <!-- <div>
     <input type="button" value="enviar" (click)="vm.send()" [disabled]="miForm.invalid" >
     <input type="button" value="volver" (click)="vm.cancel()" >

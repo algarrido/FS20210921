@@ -20,12 +20,14 @@
     "@angular/router": "~12.2.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@popperjs/core": "^2.10.2",
+    "@types/validator": "^13.6.3",
     "bootstrap": "^5.1.2",
     "jquery": "^3.6.0",
     "primeicons": "^4.1.0",
     "primeng": "^12.2.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
+    "validator": "^13.6.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

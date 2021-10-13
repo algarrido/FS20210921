@@ -10,11 +10,12 @@ import { ERROR_LEVEL, LoggerService, MyCoreModule } from 'src/lib/my-core';
 import { SecurityModule } from './security/security.module';
 import { MainModule } from './main/main.module';
 import { CommonServicesModule } from './common-services/common-services.module';
-import { ConfigModule } from './config/config.module';
 import { environment } from 'src/environments/environment';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
 import { CardComponent } from './common-component/card/card.component';
+import { HttpClientModule } from '@angular/common/http'
+import { ContactosModule } from './contactos/modulo.module';
 
 @NgModule({
   declarations: [
@@ -24,15 +25,18 @@ import { CardComponent } from './common-component/card/card.component';
     CalculadoraComponent,
     FormularioComponent,
     ClienteFormularioComponent,
-    CardComponent
+
   ],
   imports: [
-    BrowserModule, FormsModule,
+    BrowserModule,
+    FormsModule,
     MyCoreModule,
     SecurityModule,
     MainModule,
+    ContactosModule,
     CommonServicesModule,
     AppRoutingModule,
+    HttpClientModule,
 
   ],
   providers: [
