@@ -16,6 +16,7 @@ import { ClienteFormularioComponent } from './cliente-formulario/cliente-formula
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ContactosModule } from './contactos/modulo.module';
 import { CommonComponentModule } from './common-component';
+import { LibrosModule } from './libros/modulo.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CommonComponentModule } from './common-component';
     SecurityModule,
     MainModule,
     ContactosModule,
+    LibrosModule,
     CommonServicesModule,
     AppRoutingModule,
     HttpClientModule,

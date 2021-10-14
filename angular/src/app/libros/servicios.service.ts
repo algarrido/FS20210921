@@ -10,9 +10,9 @@ import { ModoCRUD } from '../base-code/tipos';
 @Injectable({
   providedIn: 'root',
 })
-export class ContactosDAOService extends RESTDAOService<any, any> {
+export class LibrosDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'contactos', {
+    super(http, 'libros', {
       context: new HttpContext().set(AUTH_REQUIRED, true),
     });
   }
@@ -21,8 +21,8 @@ export class ContactosDAOService extends RESTDAOService<any, any> {
 @Injectable({
   providedIn: 'root',
 })
-export class ContactosViewModelService {
-  protected listURL = '/contactos';
+export class LibrosViewModelService {
+  protected listURL = '/libros';
 
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
@@ -32,7 +32,7 @@ export class ContactosViewModelService {
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService,
+    protected dao: LibrosDAOService,
     public auth: AuthService,protected router: Router
   ) {}
 
@@ -92,7 +92,6 @@ export class ContactosViewModelService {
     this.idOriginal = null;
     this.listado = [];
   }
-
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
