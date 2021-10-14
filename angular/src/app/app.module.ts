@@ -7,13 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { DinamicoComponent } from './dinamico/dinamico.component';
 import { CalculadoraComponent } from './calculadora/calculadora.component';
 import { ERROR_LEVEL, LoggerService, MyCoreModule } from 'src/lib/my-core';
-import { SecurityModule } from './security/security.module';
-import { MainModule } from './main/main.module';
+import { AuthInterceptor, SecurityModule } from './security';
+import { AjaxWaitInterceptor, MainModule } from './main';
 import { CommonServicesModule } from './common-services/common-services.module';
 import { environment } from 'src/environments/environment';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ClienteFormularioComponent } from './cliente-formulario/cliente-formulario.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ContactosModule } from './contactos/modulo.module';
 import { CommonComponentModule } from './common-component';
 
@@ -38,11 +38,14 @@ import { CommonComponentModule } from './common-component';
     AppRoutingModule,
     HttpClientModule,
     CommonComponentModule,
+    AppRoutingModule,
 
   ],
   providers: [
     LoggerService,
     {provide: ERROR_LEVEL, useValue: environment.ERROR_LEVEL },
+    { provide: HTTP_INTERCEPTORS, useClass: AjaxWaitInterceptor, multi: true, },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,11 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoggerService } from 'src/lib/my-core';
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { NotificationService } from '../common-services/notification.service';
-export type ModoCRUD = 'list' | 'add' | 'edit' | 'view' | 'delete';
+import { AUTH_REQUIRED, AuthService } from '../security/services/seguridad.service';
+import { ModoCRUD } from '../base-code/tipos';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +13,7 @@ export type ModoCRUD = 'list' | 'add' | 'edit' | 'view' | 'delete';
 export class ContactosDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
     super(http, 'contactos', {
-      //context: new HttpContext().set(AUTH_REQUIRED, true),
+      context: new HttpContext().set(AUTH_REQUIRED, true),
     });
   }
 }
@@ -20,6 +22,8 @@ export class ContactosDAOService extends RESTDAOService<any, any> {
   providedIn: 'root',
 })
 export class ContactosViewModelService {
+  protected listURL = '/contactos';
+
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
@@ -28,7 +32,8 @@ export class ContactosViewModelService {
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: ContactosDAOService
+    protected dao: ContactosDAOService,
+    public auth: AuthService,protected router: Router
   ) {}
 
   public get Modo(): ModoCRUD {
@@ -90,7 +95,8 @@ export class ContactosViewModelService {
   public cancel(): void {
     this.elemento = {};
     this.idOriginal = null;
-    this.list();
+   // this.list();
+    this.router.navigateByUrl(this.listURL);
   }
   public send(): void {
     switch (this.modo) {
@@ -110,4 +116,5 @@ export class ContactosViewModelService {
         break;
     }
   }
+
 }
