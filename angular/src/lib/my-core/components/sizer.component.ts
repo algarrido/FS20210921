@@ -17,8 +17,9 @@ export class SizerComponent {
   inc(): void {
     this.resize(+1);
   }
-  resize(delta: number): void {
+  resize(delta: number): number {
     this.size = Math.min(40, Math.max(8, +this.size + delta));
     this.sizeChange.emit(this.size);
+    return this.size
   }
 }

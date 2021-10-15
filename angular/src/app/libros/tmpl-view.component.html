@@ -1,14 +1,42 @@
-<h1>Libros</h1>
+<h1>Libro</h1>
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
     <div class="well well-sm">
       <div class="row">
-
         <div class="col-sm-6 col-md-8">
           <h4>
-            {{ VM.Elemento.titulo }} {{ VM.Elemento.autor }}
+            {{ VM.Elemento.titulo }}
+            {{ VM.Elemento.autor }}
           </h4>
-
+          <p>
+            <i class="fas fa-phone-alt mr-2"></i>{{ VM.Elemento.paginas }}
+            <br />
+            <i class="fas fa-envelope mr-2"></i>{{ VM.Elemento.pais }}
+            <br />
+            <i class="fas fa-gifts mr-2"></i>{{ VM.Elemento.wiki }}
+          </p>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Social</button>
+            <button
+              type="button"
+              class="btn btn-primary dropdown-toggle"
+              data-toggle="dropdown"
+            >
+              <span class="caret"></span><span class="sr-only">Social</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Twitter</a></li>
+              <li>
+                <a href="https://plus.google.com/+Jquery2dotnet/posts"
+                  >Google +</a
+                >
+              </li>
+              <li>
+                <a href="https://www.facebook.com/jquery2dotnet">Facebook</a>
+              </li>
+              <li class="divider"></li>
+              <li><a href="#">Github</a></li>
+            </ul>
             <input
               class="btn btn-secondary"
               type="button"
@@ -20,4 +48,4 @@
       </div>
     </div>
   </div>
-
+</div>

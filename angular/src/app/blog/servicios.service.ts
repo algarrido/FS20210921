@@ -13,9 +13,9 @@ import { ModoCRUD } from '../base-code/tipos';
 @Injectable({
   providedIn: 'root',
 })
-export class LibrosDAOService extends RESTDAOService<any, any> {
+export class BlogDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'libros', {
+    super(http, 'blog', {
       context: new HttpContext().set(AUTH_REQUIRED, true),
     });
   }
@@ -24,17 +24,17 @@ export class LibrosDAOService extends RESTDAOService<any, any> {
 @Injectable({
   providedIn: 'root',
 })
-export class LibrosViewModelService {
+export class BlogViewModelService {
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
   protected elemento: any = {};
   protected idOriginal: any = null;
-  protected listURL = '/libros';
+  protected listURL = '/blog';
 
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: LibrosDAOService,
+    protected dao: BlogDAOService,
     protected router: Router
   ) {}
   public get Modo(): ModoCRUD {

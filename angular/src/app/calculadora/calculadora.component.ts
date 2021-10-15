@@ -13,7 +13,7 @@ export class CalculadoraComponent implements OnInit {
   public buffer: string = '0';
   public previousOperator: string | null = null;
 
-  constructor(private log:LoggerService,private notify: NotificationService) {}
+  constructor(private log:LoggerService) {}
 
 
   ngOnInit(): void {}

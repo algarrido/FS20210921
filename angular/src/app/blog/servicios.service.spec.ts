@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ContactosViewModelService } from './servicios.service';
+import { BlogViewModelService } from './servicios.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoggerService } from 'src/lib/my-core';
 import { NotificationService } from '../common-services';
-import { Observable } from 'rxjs';
 
 export class DAOServiceMock<T,K>{
   constructor(private listado: Array<T>){
@@ -14,8 +13,8 @@ export class DAOServiceMock<T,K>{
 
 }
 
-fdescribe('ContactosViewModelService', () => {
-  let service: ContactosViewModelService;
+fdescribe('BlogViewModelService', () => {
+  let service: BlogViewModelService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -23,7 +22,7 @@ fdescribe('ContactosViewModelService', () => {
       providers: [NotificationService, LoggerService],
     });
 
-    service = TestBed.inject(ContactosViewModelService);
+    service = TestBed.inject(BlogViewModelService);
   });
 
   it('should be created', () => {

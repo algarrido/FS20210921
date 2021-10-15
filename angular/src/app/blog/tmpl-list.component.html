@@ -1,0 +1,29 @@
+ <!-- <div
+    *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 5, currentPage: page }"
+    class="card">
+    <div class="card-header">
+      {{ item.titulo }}
+      <ng-content select="[titulo]"> </ng-content>
+    </div>
+    <div class="card-body">
+      {{ item.texto }}
+      <ng-content> </ng-content>
+    </div>
+  </div>-->
+
+  <div *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 5, currentPage: page }" class="card-columns">
+    <div routerLink="{{item.id}}/{{item.titulo}}" class="card">
+      <img class="card-img-top" src="{{item.fotourl}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{item.titulo}}</h5>
+        <p class="card-text">{{item.texto}}</p>
+      </div>
+    </div>
+  </div>
+
+
+<pagination-controls
+  (pageChange)="page = $event"
+  previousLabel="Anterior"
+  nextLabel="Siguiente"
+></pagination-controls>

@@ -1,14 +1,46 @@
-<h1>Libro</h1>
+<h1>Contacto</h1>
 <form #miForm="ngForm">
   <div class="form-row">
     <div class="form-group col-md-2">
-      <label class="form-label" for="id">Código:</label>
-      <input class="form-control" [class.is-invalid]="id.invalid && miForm.dirty" type="number" name="id" id="id"
-        [(ngModel)]="VM.Elemento.id" #id="ngModel" required min="0">
-      <div class="invalid-feedback" [hidden]="!id.hasError('required') || miForm.pristine">Es obligatorio</div>
+      <label class="form-label" for="idLibro">Código:</label>
+      <input class="form-control"[class.is-invalid]="idLibro.invalid && miForm.dirty" type="number"name="idLibro" id="idLibro" [(ngModel)]="VM.Elemento.idLibro" #idLibro="ngModel" required min="0"/>
+      <output class="invalid-feedback" [myShowErrors]="idLibro.errors"></output>
     </div>
-
+    <div class="form-group col-md-4">
+      <label class="form-label" for="titulo">Titulo:</label>
+      <input class="form-control" [class.is-invalid]="titulo.invalid" type="text" name="titulo" id="titulo" [(ngModel)]="VM.Elemento.titulo" #titulo="ngModel" required minlength="2" maxlength="50"/>
+      <output class="invalid-feedback" [myShowErrors]="titulo.errors"></output>
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="autor">Autor:</label>
+      <input class="form-control" [class.is-invalid]="autor.invalid" type="text" name="autor" id="autor" [(ngModel)]="VM.Elemento.autor" #autor="ngModel" minlength="2" maxlength="50"/>
+      <output class="invalid-feedback" [myShowErrors]="autor.errors"></output>
+    </div>
   </div>
-  <myButtons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"></myButtons>
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label class="form-label" for="pais">Pais:</label>
+      <input class="form-control" [class.is-invalid]="pais.invalid" type="text" name="pais" id="pais" [(ngModel)]="VM.Elemento.pais" #pais="ngModel" required minlength="2" maxlength="50"/>
+      <output class="invalid-feedback" [myShowErrors]="pais.errors"></output>
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="fecha">Fecha:</label>
+      <input class="form-control" [class.is-invalid]="fecha.invalid" type="text" name="fecha" id="fecha" [(ngModel)]="VM.Elemento.fecha" #fecha="ngModel" required minlength="2" maxlength="50"/>
+      <output class="invalid-feedback" [myShowErrors]="fecha.errors"></output>
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="paginas">Páginas:</label>
+      <input class="form-control"[class.is-invalid]="paginas.invalid && miForm.dirty" type="number"name="paginas" id="paginas" [(ngModel)]="VM.Elemento.paginas" #paginas="ngModel" required min="0"/>
+      <output class="invalid-feedback" [myShowErrors]="paginas.errors"></output>
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="wiki">Wiki:</label>
+      <input class="form-control" [class.is-invalid]="wiki.invalid" type="text" name="wiki" id="wiki" [(ngModel)]="VM.Elemento.wiki" #wiki="ngModel" required minlength="2" maxlength="100"/>
+      <output class="invalid-feedback" [myShowErrors]="wiki.errors"></output>
+    </div>
+  </div>
 
+  <div class="form-group">
+  <myButtons (send)="VM.send()" [send-disabled]="miForm.invalid" (cancel)="VM.cancel()"></myButtons>
+  </div>
 </form>

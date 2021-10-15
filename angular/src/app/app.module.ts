@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { ContactosModule } from './contactos/modulo.module';
 import { CommonComponentModule } from './common-component';
 import { LibrosModule } from './libros/modulo.module';
+import { BlogModule } from './blog/modulo.module';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { LibrosModule } from './libros/modulo.module';
     MainModule,
     ContactosModule,
     LibrosModule,
+    BlogModule,
     CommonServicesModule,
     AppRoutingModule,
     HttpClientModule,
