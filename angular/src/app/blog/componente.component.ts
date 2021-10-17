@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { PastValidator } from 'src/lib/my-core/directives/validadores/dates.directive';
 import { BlogViewModelService } from './servicios.service';
 
 @Component({
@@ -23,13 +24,15 @@ export class BlogComponent implements OnInit {
 })
 export class BlogListComponent implements OnInit {
   public page: number = 0;
+
   constructor(protected vm: BlogViewModelService) {}
   public get VM(): BlogViewModelService {
     return this.vm;
   }
   ngOnInit(): void {
-    this.vm.list(); //nuevo añadido
+    this.vm.list();
   }
+
 }
 @Component({
   selector: 'app-blog-add',
@@ -48,27 +51,23 @@ export class BlogAddComponent implements OnInit {
 @Component({
   selector: 'app-blog-edit',
   templateUrl: './tmpl-form.component.html',
-  styleUrls: ['./componente.component.scss'],
+  styleUrls: ['./componente.component.scss']
 })
 export class BlogEditComponent implements OnInit, OnDestroy {
   private obs$: any;
-  constructor(
-    protected vm: BlogViewModelService,
-    protected route: ActivatedRoute,
-    protected router: Router
-  ) {}
-  public get VM(): BlogViewModelService {
-    return this.vm;
-  }
+  constructor(protected vm: BlogViewModelService,
+    protected route: ActivatedRoute, protected router: Router) { }
+  public get VM(): BlogViewModelService { return this.vm; }
   ngOnInit(): void {
-    this.obs$ = this.route.paramMap.subscribe((params: ParamMap) => {
-      const id = parseInt(params?.get('id') ?? '');
-      if (id) {
-        this.vm.edit(id);
-      } else {
-        this.router.navigate(['/404.html']);
-      }
-    });
+    this.obs$ = this.route.paramMap.subscribe(
+      (params: ParamMap) => {
+        const id = parseInt(params?.get('id') ?? '');
+        if (id) {
+          this.vm.edit(id);
+        } else {
+          this.router.navigate(['/404.html']);
+        }
+      });
   }
   ngOnDestroy(): void {
     this.obs$.unsubscribe();

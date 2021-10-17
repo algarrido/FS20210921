@@ -1,29 +1,23 @@
- <!-- <div
-    *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 5, currentPage: page }"
-    class="card">
-    <div class="card-header">
-      {{ item.titulo }}
-      <ng-content select="[titulo]"> </ng-content>
-    </div>
-    <div class="card-body">
-      {{ item.texto }}
-      <ng-content> </ng-content>
-    </div>
-  </div>-->
 
-  <div *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 5, currentPage: page }" class="card-columns">
-    <div routerLink="{{item.id}}/{{item.titulo}}" class="card">
-      <img class="card-img-top" src="{{item.fotourl}}" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{item.titulo}}</h5>
-        <p class="card-text">{{item.texto}}</p>
+
+  <h1>Tablon de Noticias</h1>
+  <div class="row mb-2">
+    <div class="col-md-6" *ngFor="let item of VM.Listado | paginate: { itemsPerPage: 5, currentPage: page }">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <h3>
+            <a class="text-primary" >{{item.titulo}}</a>
+          </h3>
+          <div >{{item.fecha }}</div>
+          <p class="card-text mb-auto">{{item.texto | elipsis:100}}</p>
+          <a class="text-info" [routerLink]="['/blog', item.id]">Leer mas</a>
+        </div>
+        <img *ngIf="item.fotourl" class="card-img-right flex-auto d-none d-lg-block" data-src="{{item.fotourl}}">
       </div>
+
     </div>
+
   </div>
+  <button type="button" class="d-grid gap-2 col-6 mx-auto" routerLink="add">Añadir articulo..</button>
 
-
-<pagination-controls
-  (pageChange)="page = $event"
-  previousLabel="Anterior"
-  nextLabel="Siguiente"
-></pagination-controls>
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>

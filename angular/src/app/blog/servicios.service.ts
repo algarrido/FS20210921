@@ -35,7 +35,8 @@ export class BlogViewModelService {
     protected notify: NotificationService,
     protected out: LoggerService,
     protected dao: BlogDAOService,
-    protected router: Router
+    protected router: Router,
+    public auth: AuthService
   ) {}
   public get Modo(): ModoCRUD {
     return this.modo;

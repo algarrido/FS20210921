@@ -6,7 +6,7 @@ import { MyCoreModule } from 'src/lib/my-core';
 import { CommonServicesModule } from '../common-services/common-services.module';
 import { BLOG_COMPONENTES } from './componente.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { InplaceModule } from 'primeng/inplace';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
   ],
   imports: [
     CommonModule,FormsModule, RouterModule.forChild([]),
-    MyCoreModule, CommonServicesModule,NgxPaginationModule,
+    MyCoreModule, CommonServicesModule,NgxPaginationModule,InplaceModule,
+
   ],
   exports: [ BLOG_COMPONENTES ]
 })

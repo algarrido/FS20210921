@@ -1,17 +1,17 @@
-<h1>Blog</h1>
-<div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-6">
-    <div class="well well-sm">
-      <div class="row">
-        <div class="col-sm-6 col-md-8">
-          <h4>
-            {{ VM.Elemento.titulo }}
-            {{ VM.Elemento.autor }}
-          </h4>
+<img *ngIf="VM.Elemento.fotourl" [src]="VM.Elemento.fotourl">
+<div class="blog-post">
+  <h2 class="blog-post-title">{{VM.Elemento.titulo}}&nbsp;
+    <button *ngIf="VM.auth.isAutenticated" type="button" [routerLink]="['/blog', VM.Elemento.id, 'edit']" class="btn btn-link"><i class="fas fa-pen"></i></button>
+    <button class="btn btn-danger" (click)="VM.delete(VM.Elemento.id)"><i class="far fa-trash-alt"></i></button>
 
-
-        </div>
-      </div>
-    </div>
-  </div>
+  </h2>
+  <p class="blog-post-meta">
+    {{VM.Elemento.fecha}} by {{VM.Elemento.autor}}
+  </p>
+  <hr>
+  <div [innerHTML]="VM.Elemento.texto"></div>
+  <hr>
+  <p class="blog-pagination text-right">
+    <input type="button" value="Volver" (click)="VM.cancel()" class="btn btn-outline-info">
+  </p>
 </div>
