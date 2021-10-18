@@ -6,6 +6,7 @@ import { DemosComponent } from './demos/demos.component';
 import { LibrosAddComponent, LibrosEditComponent, LibrosListComponent, LibrosViewComponent } from './libros/componente.component';
 import { HomeComponent, PageNotFoundComponent } from './main';
 import { BlogAddComponent, BlogEditComponent,BlogListComponent,BlogViewComponent } from './blog/componente.component';
+import { AuthGuard, RegisterUserComponent } from './security';
 
 const routes: Routes = [
   { path :'', pathMatch: 'full', component:HomeComponent },
@@ -14,20 +15,20 @@ const routes: Routes = [
   { path :'calculadora', component:CalculadoraComponent },
 
   { path: 'contactos', component: ContactosListComponent },
-  { path: 'contactos/add', component: ContactosAddComponent },
-  { path: 'contactos/:id/edit', component: ContactosEditComponent },
+  { path: 'contactos/add', component: ContactosAddComponent , canActivate: [ AuthGuard ]},
+  { path: 'contactos/:id/edit', component: ContactosEditComponent , canActivate: [ AuthGuard ]},
   { path: 'contactos/:id', component: ContactosViewComponent },
   { path: 'contactos/:id/:kk', component: ContactosViewComponent },
 
   { path: 'libros', component: LibrosListComponent },
-  { path: 'libros/add', component: LibrosAddComponent },
-  { path: 'libros/:id/edit', component: LibrosEditComponent },
+  { path: 'libros/add', component: LibrosAddComponent,canActivate: [ AuthGuard ] },
+  { path: 'libros/:id/edit', component: LibrosEditComponent ,canActivate: [ AuthGuard ]},
   { path: 'libros/:id', component: LibrosViewComponent },
   { path: 'libros/:id/:kk', component: LibrosViewComponent },
 
   { path: 'blog', component: BlogListComponent },
-  { path: 'blog/add', component: BlogAddComponent },
-  { path: 'blog/:id/edit', component: BlogEditComponent },
+  { path: 'blog/add', component: BlogAddComponent , canActivate: [ AuthGuard ]},
+  { path: 'blog/:id/edit', component: BlogEditComponent , canActivate: [ AuthGuard ]},
   { path: 'blog/:id', component: BlogViewComponent },
   { path: 'blog/:id/:kk', component: BlogViewComponent },
 /*
