@@ -29,10 +29,10 @@
           <button class="btn btn-info" routerLink="{{item.idLibro}}/{{item.titulo}}-{{item.autor}}">
             <i class="fas fa-eye"></i>
           </button>
-          <button class="btn btn-success" [routerLink]="[item.idLibro, 'edit']">
+          <button *ngIf="VM.auth.isAutenticated" class="btn btn-success" [routerLink]="[item.idLibro, 'edit']">
             <i class="fas fa-pen"></i>
           </button>
-          <button class="btn btn-danger" (click)="VM.delete(item.idLibro)">
+          <button *ngIf="VM.auth.isAutenticated" class="btn btn-danger" (click)="VM.delete(item.idLibro)">
             <i class="far fa-trash-alt"></i>
           </button>
         </div>

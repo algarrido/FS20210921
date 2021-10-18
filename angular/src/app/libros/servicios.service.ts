@@ -4,10 +4,8 @@ import { Router } from '@angular/router';
 import { LoggerService } from 'src/lib/my-core';
 import { RESTDAOService } from '../base-code/RESTDAOService';
 import { NotificationService } from '../common-services/notification.service';
-import {
-  AUTH_REQUIRED,
-  AuthService,
-} from '../security/services/seguridad.service';
+import { AUTH_REQUIRED, AuthService } from '../security/services/seguridad.service';
+
 import { ModoCRUD } from '../base-code/tipos';
 
 @Injectable({
@@ -35,8 +33,8 @@ export class LibrosViewModelService {
     protected notify: NotificationService,
     protected out: LoggerService,
     protected dao: LibrosDAOService,
-    protected router: Router
-  ) {}
+    protected router: Router,
+    public auth: AuthService  ) {}
   public get Modo(): ModoCRUD {
     return this.modo;
   }
