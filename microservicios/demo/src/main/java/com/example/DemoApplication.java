@@ -10,11 +10,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.domains.contracts.services.IActorService;
+import com.example.domains.contracts.services.ICategoryService;
 import com.example.domains.entities.Actor;
+import com.example.domains.entities.Category;
 import com.example.domains.entities.Film;
 import com.example.domains.entities.dtos.ActorDTO;
+import com.example.domains.entities.dtos.CategoryDTO;
 import com.example.domains.entities.dtos.IActorShort;
 import com.example.infrastructure.repositories.IActorRepository;
+import com.example.infrastructure.repositories.ICategoryRepository;
 import com.example.ioc.Servicio;
 
 import ch.qos.logback.core.joran.conditional.IfAction;
@@ -33,7 +37,13 @@ public class DemoApplication implements CommandLineRunner {
 	IActorRepository dao;
 
 	@Autowired
+	ICategoryRepository daoC;
+
+	@Autowired
 	IActorService srv;
+	
+	@Autowired
+	ICategoryService srvC;
 
 	@Override
 	public void run(String... args) throws Exception {// ejecuta esto antes del main
@@ -76,13 +86,26 @@ public class DemoApplication implements CommandLineRunner {
 	//	dao.findByActorIdNotNull(ActorDTO.class).forEach(item -> System.out.println(item));
 		
 	//	dao.findByActorIdNotNull(Actor.class).forEach(item -> System.out.println(item));
-		Actor actor = new Actor(0,"","");
-			if(actor.isInvalid())
-				actor.getErrors().forEach(item->
-				System.out.println(item.getPropertyPath()+" : " + item.getMessage()));
-			else {
-				System.out.println("Valido");
-			}
+		
+		
+//		Actor actor = new Actor(0,"","");
+//			if(actor.isInvalid())
+//				actor.getErrors().forEach(item->
+//				System.out.println(item.getPropertyPath()+" : " + item.getMessage()));
+//			else {
+//				System.out.println("Valido");
+//			}
+		
+		Category category = new Category(0,"name");
+	/*	if(category.isInvalid())
+			category.getErrors().forEach(item->
+			System.out.println(item.getPropertyPath()+" : " + item.getMessage()));
+		else {
+			System.out.println("Valido");*/
+			srvC.add(category);
+			//daoC.findByCategoryIdNotNull(CategoryDTO.class).forEach(item -> System.out.println(item));
+
+		
 			//dao.save(actor);
 		//	srv.add(actor);
 	}
