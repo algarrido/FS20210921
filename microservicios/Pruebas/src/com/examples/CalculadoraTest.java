@@ -1,6 +1,7 @@
 package com.examples;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -11,10 +12,12 @@ import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 class CalculadoraTest {
-	Calculadora calc;
+	ICalculadora calc;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -39,7 +42,7 @@ class CalculadoraTest {
 		assertEquals(4, calc.sumar(2, 2));
 
 	}
-//
+
 	@Nested
 	@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 	class Divisiones {
@@ -72,7 +75,22 @@ class CalculadoraTest {
 		
 	}
 	
-	
+//	@Nested
+//	@DisplayName("Prueba Mokeado")
+//	@ExtendWith(MockitoExtension.class)
+//	class Mockeado{
+//		
+//		@Mock
+//		Calculadora calculadora;
+//		
+//		@Test
+//		@DisplayName("Suma mock")
+//		void suma_mock() {
+//			when(calculadora.sumar(2, 2)).thenReturn(2.0);
+//			assertEquals(calculadora.sumar(2, 2), 2);
+//		}
+//	}
+//	
 	
 
 }

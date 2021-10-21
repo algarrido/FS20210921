@@ -4,7 +4,6 @@ public class Dni {
 	
 	public boolean DNI(String dni) {
 		
-	 try {
 		 char[] letraDni = {
             'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D',  'X',  'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'
         };  
@@ -16,7 +15,8 @@ public class Dni {
              dni = "0" + dni;
         }
  
-        if (dni.isEmpty() || !Character.isLetter(dni.charAt(8)) || dni.length() != 9) {
+        if (dni.isEmpty() || !Character.isLetter(dni.charAt(8)) 
+        		|| dni.length() != 9 || dni ==null ) {
              return false; 
              
         }
@@ -35,9 +35,7 @@ public class Dni {
              return false;
        }   
        
-	 }catch (Exception e) {
-		System.err.print(e);
-	}
+	 
 	 return true;    
    }
 	
