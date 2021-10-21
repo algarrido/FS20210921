@@ -13,7 +13,7 @@ public interface DomainService<E, K> {
 	Optional<E> getOne(K id); //optional -hash si no
 	E add(E item)throws DuplicateKeyException, InvalidDataException;
 	E modify(E item)throws NotFoundException, InvalidDataException;
-	void delete(E item);
+	void delete(E item)throws InvalidDataException;
 	void deleteById(K id);
 
 }

@@ -16,6 +16,10 @@ public interface IActorRepository extends JpaRepository<Actor, Integer> {
 	
 	List<Actor> findByLastUpdateGreaterThan(LocalDate fecha);
 
+	//List<ActorDTO> findByactorIdNotNull();
+	//List<ActorShort> findByactorIdNotNull();
+	
+	<T> List<T> findByActorIdNotNull(Class<T> type);
 	
 	@Query("FROM Actor a WHERE a.lastUpdate > '2021-10-21'")
 	List<Actor> laMia();
