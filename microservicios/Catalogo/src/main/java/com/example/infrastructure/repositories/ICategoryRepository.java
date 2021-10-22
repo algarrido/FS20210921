@@ -15,6 +15,7 @@ public interface ICategoryRepository extends JpaRepository<Category, Integer>{
 
 		//List<Category> findByFirstNameStartingWithOrderByLastNameDesc(String prefijo);
 		
+	
 		List<Category> findByLastUpdateGreaterThan(LocalDate fecha);
 
 		List<CategoryDTO> findBycategoryIdNotNull();

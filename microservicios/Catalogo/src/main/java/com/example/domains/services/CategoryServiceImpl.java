@@ -27,6 +27,7 @@ public class CategoryServiceImpl implements ICategoryService{
 		return dao.findAll();
 		
 	}
+	
 
 	@Override
 	public Optional<Category> getOne(Integer id) {

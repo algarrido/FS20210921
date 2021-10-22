@@ -91,7 +91,7 @@ public class DemoApplication implements CommandLineRunner {
 			System.out.println("Valido");*/
 			//srvC.add(category);
 		
-			daoC.findByCategoryIdNotNull(CategoryDTO.class).forEach(item -> System.out.println(item));
+			//daoC.findByCategoryIdNotNull(CategoryDTO.class).forEach(item -> System.out.println(item));
 
 		
 			//dao.save(actor);

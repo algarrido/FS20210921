@@ -10,6 +10,8 @@ import org.hibernate.annotations.GenerationTime;
 import org.hibernate.validator.constraints.Length;
 
 import com.example.domains.core.EntityBase;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -30,20 +32,24 @@ public class Category extends EntityBase<Category> implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="category_id")
+	@JsonProperty("id")
 	private int categoryId;
 
 	@Column(name="last_update")
 	@Generated(value = GenerationTime.ALWAYS)
 	@PastOrPresent
+	@JsonIgnore
 	private Timestamp lastUpdate;
-	
-	@Column(name="name")
+
+
 	@NotBlank
-	@Length(min=2, max = 45)
+	@Length(min=2, max = 25)
+	@JsonProperty("Categoria")
 	private String name;
 
 	//bi-directional many-to-one association to FilmCategory
 	@OneToMany(mappedBy="category")
+	@JsonIgnore
 	private List<FilmCategory> filmCategories= new ArrayList<FilmCategory>();
 
 	public Category() {
@@ -54,6 +60,7 @@ public class Category extends EntityBase<Category> implements Serializable {
 		this.categoryId = categoryId;
 	}
 
+	//no necesario?
 	public Category(int categoryId, String name) {
 		super();
 		this.categoryId = categoryId;
@@ -105,10 +112,15 @@ public class Category extends EntityBase<Category> implements Serializable {
 
 		return filmCategory;
 	}
+	
+	/*
+	 * comparar numero contra numero
+	 */
 	@Override
 	public int hashCode() {
 		return Objects.hash(categoryId);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -121,6 +133,10 @@ public class Category extends EntityBase<Category> implements Serializable {
 		return categoryId == other.categoryId;
 	}
 
+	@Override
+	public String toString() {
+		return "Category [categoryId=" + categoryId + ", name=" + name + ", lastUpdate=" + lastUpdate + "]";
+	}
 	
 
 }
