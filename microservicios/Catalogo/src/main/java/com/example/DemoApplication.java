@@ -2,22 +2,14 @@ package com.example;
 
 import java.util.Optional;
 
-import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.domains.contracts.services.IActorService;
 import com.example.domains.contracts.services.ICategoryService;
-import com.example.domains.entities.Actor;
 import com.example.domains.entities.Category;
-import com.example.domains.entities.Film;
-import com.example.domains.entities.dtos.ActorDTO;
 import com.example.domains.entities.dtos.CategoryDTO;
-import com.example.domains.entities.dtos.IActorShort;
-import com.example.infrastructure.repositories.IActorRepository;
 import com.example.infrastructure.repositories.ICategoryRepository;
 import com.example.ioc.Servicio;
 
@@ -33,15 +25,10 @@ public class DemoApplication implements CommandLineRunner {
 //	@Value("${spring.datasource.username}")
 //	String name;
 //	
-	@Autowired
-	IActorRepository dao;
-
+	
 	@Autowired
 	ICategoryRepository daoC;
 
-	@Autowired
-	IActorService srv;
-	
 	@Autowired
 	ICategoryService srvC;
 
@@ -96,14 +83,15 @@ public class DemoApplication implements CommandLineRunner {
 //				System.out.println("Valido");
 //			}
 		
-		Category category = new Category(0,"name");
+		//Category category = new Category(0,"name");
 	/*	if(category.isInvalid())
 			category.getErrors().forEach(item->
 			System.out.println(item.getPropertyPath()+" : " + item.getMessage()));
 		else {
 			System.out.println("Valido");*/
 			//srvC.add(category);
-			//daoC.findByCategoryIdNotNull(CategoryDTO.class).forEach(item -> System.out.println(item));
+		
+			daoC.findByCategoryIdNotNull(CategoryDTO.class).forEach(item -> System.out.println(item));
 
 		
 			//dao.save(actor);
