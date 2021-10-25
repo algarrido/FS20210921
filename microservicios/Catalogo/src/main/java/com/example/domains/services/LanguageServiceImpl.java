@@ -7,18 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
-import com.example.domains.contracts.services.ICategoryService;
 import com.example.domains.contracts.services.ILanguageService;
-import com.example.domains.entities.Actor;
-import com.example.domains.entities.Category;
 import com.example.domains.entities.Language;
 import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
-import com.example.infrastructure.repositories.IActorRepository;
 import com.example.infrastructure.repositories.ILanguageRepository;
 
+@Service
 public class LanguageServiceImpl implements ILanguageService{
 
 	@Autowired
