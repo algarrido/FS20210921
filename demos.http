@@ -68,14 +68,60 @@ Content-Type: application/json
 }
 
 ###
-post http://localhost:8010/actores/3
+post http://localhost:8010/actores/500
 Content-Type: application/json
 
 {
-  "id":0,
+  "id":500,
   "nombre": "eqeqeq",
   "apellidos": "coton"
 }
 
+
+###
+
+put http://localhost:8010/lenguajes/2
+Content-Type: application/json
+  
+{
+  "languageId": 2,
+  "nombre": "italiano"
+}
+
+###
+post http://localhost:8010/lenguajes
+Accept-Language: es-es
+Accept: text/plain, application/json
+Content-Type: application/json
+
+{
+  "languageId":6,
+  "lastUpdate":null,
+  "nombre": "italianoo"
+}
+###
+post http://localhost:8010/categorias
+Accept-Language: es-es
+Accept: text/plain, application/json
+Content-Type: application/json
+
+{
+  "id":6,
+  "Categoria":"NuevaCategoria"
+}
+
+###
+
+put http://localhost:8010/categorias/5
+Content-Type: application/json
+
+{
+  "id": 5,
+  "Categoria": "Animacion"
+}
 ###
 delete http://localhost:8001/actores/206
+
+###
+delete http://localhost:8010/lenguajes/6
+
