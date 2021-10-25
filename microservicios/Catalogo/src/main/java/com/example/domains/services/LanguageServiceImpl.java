@@ -7,76 +7,76 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Service;
 
-import com.example.domains.contracts.services.IActorService;
+import com.example.domains.contracts.services.ICategoryService;
+import com.example.domains.contracts.services.ILanguageService;
 import com.example.domains.entities.Actor;
+import com.example.domains.entities.Category;
+import com.example.domains.entities.Language;
 import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 import com.example.infrastructure.repositories.IActorRepository;
+import com.example.infrastructure.repositories.ILanguageRepository;
 
-@Service
-public class ActorServiceImpl implements IActorService {
-	
-	//esta clase implementa los metodos de la interfaz y llama al repositorio que es donde esta las consultas
-	
+public class LanguageServiceImpl implements ILanguageService{
+
 	@Autowired
-	private IActorRepository dao;
+	private ILanguageRepository dao;
 	
 	@Override
-	public List<Actor> getAll() {
+	public List<Language> getAll() {
 		return dao.findAll();
 	}
 
 	@Override
-	public Iterable<Actor> getAll(Sort sort) {
+	public Iterable<Language> getAll(Sort sort) {
 		return dao.findAll(sort);
 	}
 
 	@Override
-	public Page<Actor> getAll(Pageable pageable) {
+	public Page<Language> getAll(Pageable pageable) {
 		return dao.findAll(pageable);
 	}
 
 	@Override
 	public <T> List<T> getByProjection(Class<T> type) {
-		return dao.findByActorIdIsNotNull(type);
+		return dao.findByLanguageIdIsNotNull(type);
 	}
 
 	@Override
 	public <T> Iterable<T> getByProjection(Sort sort, Class<T> type) {
-		return dao.findByActorIdIsNotNull(sort, type);
+		return dao.findByLanguageIdIsNotNull(sort, type);
 	}
 
 	@Override
 	public <T> Page<T> getByProjection(Pageable pageable, Class<T> type) {
-		return dao.findByActorIdIsNotNull(pageable, type);
+		return dao.findByLanguageIdIsNotNull(pageable, type);
 	}
 
 	@Override
-	public Optional<Actor> getOne(Integer id) {
+	public Optional<Language> getOne(Integer id) {
 		return dao.findById(id);
 	}
 
 	@Override
-	public Actor add(Actor item) throws DuplicateKeyException, InvalidDataException {
+	public Language add(Language item) throws DuplicateKeyException, InvalidDataException {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		if(item.isInvalid())
-			throw new InvalidDataException("error datos");
-		if(getOne(item.getActorId()).isPresent())
+			throw new InvalidDataException("err");
+		if(getOne(item.getLanguageId()).isPresent())
 			throw new DuplicateKeyException();
 		return dao.save(item);
 	}
 
 	@Override
-	public Actor modify(Actor item) throws NotFoundException, InvalidDataException {
+	public Language modify(Language item) throws NotFoundException, InvalidDataException {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		if(item.isInvalid())
-			throw new InvalidDataException("error de datos");
-		if(getOne(item.getActorId()).isEmpty())
+			throw new InvalidDataException("err");
+		if(getOne(item.getLanguageId()).isEmpty())
 			throw new NotFoundException();
 		return dao.save(item);
 	}
@@ -87,10 +87,10 @@ public class ActorServiceImpl implements IActorService {
 	}
 
 	@Override
-	public void delete(Actor item) throws InvalidDataException {
+	public void delete(Language item) throws InvalidDataException {
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
-		deleteById(item.getActorId());
+		deleteById(item.getLanguageId());
 	}
 
 }

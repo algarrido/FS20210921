@@ -8,9 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.domains.contracts.services.ICategoryService;
+import com.example.domains.contracts.services.ILanguageService;
 import com.example.domains.entities.Category;
+import com.example.domains.entities.Language;
 import com.example.domains.entities.dtos.CategoryDTO;
+import com.example.domains.entities.dtos.LanguageDTO;
 import com.example.infrastructure.repositories.ICategoryRepository;
+import com.example.infrastructure.repositories.ILanguageRepository;
 import com.example.ioc.Servicio;
 
 import ch.qos.logback.core.joran.conditional.IfAction;
@@ -30,8 +34,12 @@ public class DemoApplication implements CommandLineRunner {
 	ICategoryRepository daoC;
 
 	@Autowired
+	ILanguageRepository daoL;
+
+	@Autowired
 	ICategoryService srvC;
 
+	
 	@Override
 	public void run(String... args) throws Exception {// ejecuta esto antes del main
 
@@ -96,6 +104,11 @@ public class DemoApplication implements CommandLineRunner {
 		
 			//dao.save(actor);
 		//	srv.add(actor);
+		//Language l = new Language(0,"name");
+		//srvL.add(l);
+		 //srvL.getAll().forEach(System.out::println);
+		 //srvL.getAll().forEach(Item->System.out.println(LanguageDTO.from(Item)));
+		 daoL.findByLanguageIdIsNotNull(LanguageDTO.class).forEach(item -> System.out.println(item));
 	}
 
 }
