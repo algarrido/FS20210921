@@ -110,7 +110,7 @@ public class DemoApplication implements CommandLineRunner {
 		 //srvL.getAll().forEach(System.out::println);
 		 //srvL.getAll().forEach(Item->System.out.println(LanguageDTO.from(Item)));
 		 daoL.findByLanguageIdIsNotNull(LanguageDTO.class).forEach(item -> System.out.println(item));
-		 daoF.findByFilmIdIsNotNull(FilmDTO.class).forEach(item -> System.out.println(item));
+	//	 daoF.findByFilmIdIsNotNull(FilmDTO.class).forEach(item -> System.out.println(item));
 
 	}
 

@@ -27,3 +27,36 @@ Content-Type: application/json
 }
 
 
+###
+get http://localhost:8010/actores
+Accept: text/xml
+
+###
+get http://localhost:8010/peliculas
+Accept: text/xml
+
+###
+get http://localhost:8001/actores/1
+Accept: text/xml
+
+
+###
+post http://localhost:8010/actores
+Content-Type: :application/json
+{
+    "id":0,
+    "nombre": "ahh",
+    "apellidos":"ams"
+}
+
+###
+post http://localhost:8001/actores/206
+Content-Type: :application/json
+{
+    "id":206,
+    "nombre": "otro",
+    "apellidos":"aja"
+}
+
+###
+delete http://localhost:8001/actores/206
