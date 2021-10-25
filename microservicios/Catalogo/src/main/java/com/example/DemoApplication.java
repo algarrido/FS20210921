@@ -12,8 +12,10 @@ import com.example.domains.contracts.services.ILanguageService;
 import com.example.domains.entities.Category;
 import com.example.domains.entities.Language;
 import com.example.domains.entities.dtos.CategoryDTO;
+import com.example.domains.entities.dtos.FilmDTO;
 import com.example.domains.entities.dtos.LanguageDTO;
 import com.example.infrastructure.repositories.ICategoryRepository;
+import com.example.infrastructure.repositories.IFilmRepository;
 import com.example.infrastructure.repositories.ILanguageRepository;
 import com.example.ioc.Servicio;
 
@@ -37,9 +39,8 @@ public class DemoApplication implements CommandLineRunner {
 	ILanguageRepository daoL;
 
 	@Autowired
-	ICategoryService srvC;
+	IFilmRepository daoF;
 
-	
 	@Override
 	public void run(String... args) throws Exception {// ejecuta esto antes del main
 
@@ -109,6 +110,8 @@ public class DemoApplication implements CommandLineRunner {
 		 //srvL.getAll().forEach(System.out::println);
 		 //srvL.getAll().forEach(Item->System.out.println(LanguageDTO.from(Item)));
 		 daoL.findByLanguageIdIsNotNull(LanguageDTO.class).forEach(item -> System.out.println(item));
+		 daoF.findByFilmIdIsNotNull(FilmDTO.class).forEach(item -> System.out.println(item));
+
 	}
 
 }
