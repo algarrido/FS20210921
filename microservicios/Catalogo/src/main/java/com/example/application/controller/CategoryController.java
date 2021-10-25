@@ -20,7 +20,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.domains.contracts.services.ICategoryService;
 import com.example.domains.entities.Category;
-import com.example.domains.entities.dtos.CategoryDTO;
 import com.example.exceptions.BadRequestException;
 import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
@@ -41,11 +40,11 @@ public class CategoryController {
 
 
 	@PostMapping
-	public ResponseEntity<Object> create(@Valid @RequestBody CategoryDTO item)
+	public ResponseEntity<Object> create(@Valid @RequestBody Category item)
 			throws BadRequestException, DuplicateKeyException, InvalidDataException {
 		if (item == null)
 			throw new BadRequestException("Faltan los datos");
-		var newItem = srv.add(CategoryDTO.from(item));
+		var newItem = srv.add(item);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(newItem.getCategoryId()).toUri();
 		return ResponseEntity.created(location).build();
@@ -54,13 +53,13 @@ public class CategoryController {
 	
 	@PutMapping("/{id}")
 	// @ResponseStatus(HttpStatus.NO_CONTENT)
-	public CategoryDTO update(@PathVariable int id, @Valid @RequestBody CategoryDTO item)
+	public Category update(@PathVariable int id, @Valid @RequestBody Category item)
 			throws BadRequestException, NotFoundException, InvalidDataException {
 		if (item == null)
 			throw new BadRequestException("Faltan los datos");
 		if (id != item.getCategoryId())
 			throw new BadRequestException("No coinciden los identificadores");
-		return CategoryDTO.from(srv.modify(CategoryDTO.from(item)));
+		return srv.modify(item);
 	}
 	
 	@DeleteMapping("/{id}")

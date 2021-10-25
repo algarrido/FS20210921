@@ -28,31 +28,6 @@ public class LanguageServiceImpl implements ILanguageService{
 	}
 
 	@Override
-	public Iterable<Language> getAll(Sort sort) {
-		return dao.findAll(sort);
-	}
-
-	@Override
-	public Page<Language> getAll(Pageable pageable) {
-		return dao.findAll(pageable);
-	}
-
-	@Override
-	public <T> List<T> getByProjection(Class<T> type) {
-		return dao.findByLanguageIdIsNotNull(type);
-	}
-
-	@Override
-	public <T> Iterable<T> getByProjection(Sort sort, Class<T> type) {
-		return dao.findByLanguageIdIsNotNull(sort, type);
-	}
-
-	@Override
-	public <T> Page<T> getByProjection(Pageable pageable, Class<T> type) {
-		return dao.findByLanguageIdIsNotNull(pageable, type);
-	}
-
-	@Override
 	public Optional<Language> getOne(Integer id) {
 		return dao.findById(id);
 	}
