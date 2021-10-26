@@ -26,8 +26,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.domains.contracts.services.IFilmService;
+import com.example.domains.entities.Category;
+import com.example.domains.entities.Language;
+import com.example.domains.entities.dtos.ActorDTO;
 import com.example.domains.entities.dtos.FilmDTO;
-import com.example.domains.entities.dtos.FilmShort;
 import com.example.exceptions.BadRequestException;
 import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
@@ -58,19 +60,39 @@ public class FilmController {
 	public FilmDTO getOne(@PathVariable int id) throws NotFoundException {
 		var peli = srv.getOne(id);
 		if (peli.isEmpty())
-			throw new NotFoundException();
+			throw new NotFoundException("No se encuentra");
 		else
 			return FilmDTO.from(peli.get());
 	}
 
-	@GetMapping(path = "/{id}/peliculas")
+	@GetMapping(path = "/{id}/actores")
 	@Transactional
-	public List<FilmShort> getPelis(@PathVariable int id) throws NotFoundException {
-		var pe = srv.getOne(id);
-		if (pe.isEmpty())
-			throw new NotFoundException();
+	public List<ActorDTO> getActores(@PathVariable int id) throws NotFoundException {
+		var film = srv.getOne(id);
+		if(film.isEmpty())
+			throw new NotFoundException("No se encuentra");
 		else {
-			return (List<FilmShort>) pe.get().getFilmActors().stream().map(item -> FilmShort.from(item)).collect(Collectors.toList());
+			return srv.getFilmActores(id).stream().map(item -> ActorDTO.from(item)).collect(Collectors.toList());
+		}
+	}
+	@GetMapping(path = "/{id}/lenguages")
+	@Transactional
+	public List<Language> getLanguages(@PathVariable int id) throws NotFoundException {
+		var film = srv.getOne(id);
+		if(film.isEmpty())
+			throw new NotFoundException("No se encuentra");
+		else {
+			return srv.getFilmLanguages(id);
+		}
+	}
+	@GetMapping(path = "/{id}/categorias")
+	@Transactional
+	public List<Category> getCategories(@PathVariable int id) throws NotFoundException {
+		var film = srv.getOne(id);
+		if(film.isEmpty())
+			throw new NotFoundException("No se encuentra");
+		else {
+			return srv.getFilmCategorias(id);
 		}
 	}
 
