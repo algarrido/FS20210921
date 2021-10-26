@@ -121,7 +121,7 @@ public class Film extends EntityBase<Film> implements Serializable {
 		this.language = language;
 		this.description=description;
 	}
-
+	
 	public int getFilmId() {
 		return this.filmId;
 	}

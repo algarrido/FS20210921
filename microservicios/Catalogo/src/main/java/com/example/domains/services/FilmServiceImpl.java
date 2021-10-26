@@ -10,7 +10,10 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.domains.contracts.services.IFilmService;
+import com.example.domains.entities.Actor;
+import com.example.domains.entities.Category;
 import com.example.domains.entities.Film;
+import com.example.domains.entities.Language;
 import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
@@ -89,5 +92,20 @@ public class FilmServiceImpl implements IFilmService{
 		if(item == null)
 			throw new InvalidDataException("Faltan los datos");
 		deleteById(item.getFilmId());
+	}
+
+	@Override
+	public List<Actor> getFilmActores(int id) {
+		return dao.getFilmActores(id);
+	}
+
+	@Override
+	public List<Language> getFilmLanguages(int id) {
+		return dao.getFilmLanguages(id);
+	}
+
+	@Override
+	public List<Category> getFilmCategorias(int id) {
+		return dao.getFilmCategory(id);
 	}
 }
