@@ -25,8 +25,11 @@ import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+
 @RestController
 @RequestMapping(path = "/categorias")
+@Api(value="Mantenimiento de Categorias", description = "Permite mantener la lista de categorias actualizada")
 public class CategoryController {
 
 

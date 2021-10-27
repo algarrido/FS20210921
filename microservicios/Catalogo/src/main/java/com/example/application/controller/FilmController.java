@@ -35,14 +35,18 @@ import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiOperation;
+
 
 @RestController
 @RequestMapping(path = "/peliculas")
+@Api(value="Mantenimiento de peliculas", description = "Permite mantener la lista de peliculas actualizada")
 public class FilmController {
 
 	@Autowired
 	IFilmService srv;
-
 	@GetMapping
 	public List<FilmDTO> getAll(@RequestParam(required = false) String sort) {
 		if (sort == null)
@@ -55,7 +59,7 @@ public class FilmController {
 	public Page<FilmDTO> getAllPageable(Pageable item) {
 		return srv.getByProjection(item, FilmDTO.class);
 	}
-
+	
 	@GetMapping(path = "/{id}")
 	public FilmDTO getOne(@PathVariable int id) throws NotFoundException {
 		var peli = srv.getOne(id);

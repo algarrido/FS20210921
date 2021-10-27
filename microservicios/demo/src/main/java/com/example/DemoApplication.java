@@ -22,8 +22,10 @@ import com.example.infrastructure.repositories.ICategoryRepository;
 import com.example.ioc.Servicio;
 
 import ch.qos.logback.core.joran.conditional.IfAction;
+import springfox.documentation.oas.annotations.EnableOpenApi;
 
 @SpringBootApplication
+@EnableOpenApi
 public class DemoApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
@@ -96,7 +98,7 @@ public class DemoApplication implements CommandLineRunner {
 //				System.out.println("Valido");
 //			}
 		
-		Category category = new Category(0,"name");
+	//	Category category = new Category(0,"name");
 	/*	if(category.isInvalid())
 			category.getErrors().forEach(item->
 			System.out.println(item.getPropertyPath()+" : " + item.getMessage()));

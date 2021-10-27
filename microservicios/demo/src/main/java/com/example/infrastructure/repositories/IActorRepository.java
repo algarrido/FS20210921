@@ -7,10 +7,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
-
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.core.annotation.RestResource;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 
 import com.example.domains.entities.Actor;
 
+@RepositoryRestResource(exported = false)
 public interface IActorRepository extends JpaRepository<Actor, Integer> {
 	// crea el prototipo de las consultas aqui
 

@@ -27,6 +27,8 @@ import com.example.domains.entities.dtos.ActorDTO;
 import com.example.exceptions.BadRequestException;
 import com.example.exceptions.NotFoundException;
 
+import io.swagger.annotations.Api;
+
 import javax.validation.ConstraintViolation;
 import javax.websocket.server.PathParam;
 import org.springframework.http.MediaType;
@@ -44,6 +46,7 @@ import com.example.exceptions.InvalidDataException;
 //@RequestMapping("/api/actores")
 @RestController
 @RequestMapping(path = "/actores")
+@Api(value="Mantenimiento de actores", description = "Permite mantener la lista de actores utilizados en el reparto de las peliculas")
 public class ActorController {
 	@Autowired
 	IActorService srv;

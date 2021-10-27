@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.example.domains.contracts.services.ICategoryService;
 import com.example.domains.contracts.services.ILanguageService;
@@ -20,8 +23,18 @@ import com.example.infrastructure.repositories.ILanguageRepository;
 import com.example.ioc.Servicio;
 
 import ch.qos.logback.core.joran.conditional.IfAction;
+import io.swagger.annotations.Api;
+import springfox.boot.starter.autoconfigure.SpringfoxConfigurationProperties.OpenApiConfigurationProperties;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.oas.annotations.EnableOpenApi;
+import springfox.documentation.service.Contact;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
 
 @SpringBootApplication
+@EnableOpenApi
 public class DemoApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
@@ -43,7 +56,8 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {// ejecuta esto antes del main
-
+		
+	
 //		Optional<Actor> a = dao.findById(1);
 //		//Actor o = dao.getById(1);
 //		
@@ -109,9 +123,27 @@ public class DemoApplication implements CommandLineRunner {
 		//srvL.add(l);
 		 //srvL.getAll().forEach(System.out::println);
 		 //srvL.getAll().forEach(Item->System.out.println(LanguageDTO.from(Item)));
-		 daoL.findByLanguageIdIsNotNull(LanguageDTO.class).forEach(item -> System.out.println(item));
+	//	 daoL.findByLanguageIdIsNotNull(LanguageDTO.class).forEach(item -> System.out.println(item));
 	//	 daoF.findByFilmIdIsNotNull(FilmDTO.class).forEach(item -> System.out.println(item));
 
 	}
-
+//	@Bean
+//	public Docket api() {                
+//   	    return new Docket(DocumentationType.OAS_30)          
+//	      .select()
+//	      .apis(RequestHandlerSelectors.basePackage("com.example.application.resource"))
+//	      .paths(PathSelectors.ant("/**"))
+//	      .build()
+//	      .apiInfo(new ApiInfoBuilder()
+//	                .title("Microservicio: Catalogo de peliculas")
+//	                .description("Ejemplo de Microservicio utilizando la base de datos **Sakila**.")
+//	                .version("1.0")
+//	                .license("Apache License Version 2.0")
+//	                .contact(new Contact("Lidia", "http://www.example.com", "myeaddress@example.com"))
+//	                .build());
+//   	 
+//     
+//      
+//     
+//	}
 }
