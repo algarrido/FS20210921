@@ -34,7 +34,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @SpringBootApplication
-@EnableOpenApi
 public class DemoApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
@@ -127,23 +126,5 @@ public class DemoApplication implements CommandLineRunner {
 	//	 daoF.findByFilmIdIsNotNull(FilmDTO.class).forEach(item -> System.out.println(item));
 
 	}
-//	@Bean
-//	public Docket api() {                
-//   	    return new Docket(DocumentationType.OAS_30)          
-//	      .select()
-//	      .apis(RequestHandlerSelectors.basePackage("com.example.application.resource"))
-//	      .paths(PathSelectors.ant("/**"))
-//	      .build()
-//	      .apiInfo(new ApiInfoBuilder()
-//	                .title("Microservicio: Catalogo de peliculas")
-//	                .description("Ejemplo de Microservicio utilizando la base de datos **Sakila**.")
-//	                .version("1.0")
-//	                .license("Apache License Version 2.0")
-//	                .contact(new Contact("Lidia", "http://www.example.com", "myeaddress@example.com"))
-//	                .build());
-//   	 
-//     
-//      
-//     
-//	}
+
 }
