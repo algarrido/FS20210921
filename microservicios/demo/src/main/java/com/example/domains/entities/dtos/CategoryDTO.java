@@ -1,5 +1,6 @@
 package com.example.domains.entities.dtos;
 
+import com.example.application.controller.DemosController;
 import com.example.domains.entities.Category;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -21,6 +22,12 @@ public class CategoryDTO {
 	}
 	public static Category from(CategoryDTO source) {
 		return new Category(source.getCategoryId(),source.getName());
+	}
+	
+	@Data
+	public static class Categorias {
+		private int id;
+		private String categoria;
 	}
 	
 }

@@ -19,6 +19,7 @@ public class ActorDTO {
 //define los fatos que quieres que se vean/envien
 	
 	@JsonProperty("id")
+	@ApiModelProperty(name = "ID", value = "Identificador del actor",required = true)
 	private int actorId;
 	
 	@NotBlank

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
@@ -16,6 +17,7 @@ import com.example.domain.entities.Contacto;
 import com.example.infraestruture.repositories.IContactoRepository;
 
 @SpringBootApplication
+@EnableEurekaClient
 public class ContactosApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
