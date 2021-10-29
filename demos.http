@@ -1,7 +1,9 @@
+
 GET http://localhost:8001/params/1?nom=hola
 Accept-Language: cristino
 
-###
+### //POST CREA / PUT MODIFICA
+
 
 GET http://localhost:8001/params/2?nom=adios
 Accept-Language: es-es
@@ -15,13 +17,13 @@ Accept: text/plain, application/json
 
 ###
 
-POST http://localhost:8001/salida
+POST http://localhost:8010/actores/
 Accept-Language: es-es
 Accept: text/plain, application/json
 Content-Type: application/json
 
 {
-    "id":7,
+    "id":203,
     "nombre":"Nuevo",
     "apellidos":"actor"
 }
@@ -47,15 +49,6 @@ get http://localhost:8010/actores/1
 Accept: text/xml
 
 
-###
-post http://localhost:8010/actores
-Content-Type: :application/json
-
-{
-    "id":0,
-    "nombre": "ahh",
-    "apellidos":"ams"
-}
 ###
 
 put http://localhost:8010/actores/200
@@ -100,6 +93,24 @@ Content-Type: application/json
   "nombre": "italianoo"
 }
 ###
+post http://localhost:8010/peliculas
+Accept-Language: es-es
+Accept: text/plain, application/json
+Content-Type: application/json
+
+{
+  "id":1001,
+  "title":"NUEVAAAAAA",
+  "description": "A Epic Drama of a Feminist And a Mad Scientist who must Battle a Teacher in The Canadian Rockies",
+  "idioma":{
+      "languageId": 1,
+      "lastUpdate": "2006-02-15",
+      "name": "English"
+  }
+
+}
+
+###
 post http://localhost:8010/categorias
 Accept-Language: es-es
 Accept: text/plain, application/json
@@ -124,4 +135,17 @@ delete http://localhost:8001/actores/206
 
 ###
 delete http://localhost:8010/lenguajes/6
+
+###
+get http://localhost:8001/auto/countries
+
+###
+
+POST http://localhost:8001/auto/countries
+Content-Type: application/json
+
+{
+    "countryId":110,
+    "country": "ESPAÑA"
+}
 

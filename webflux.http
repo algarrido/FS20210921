@@ -1,0 +1,12 @@
+get http://localhost:8066/api/contactos
+
+
+###
+get http://localhost:8066/api/contactos/1
+
+###
+get http://localhost:8065/serie
+
+###
+get http://localhost:8065/paralelo
+

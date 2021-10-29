@@ -39,6 +39,7 @@ public class ConsultaResource {
 		Contacto contacto3 = rest.getForObject("http://localhost:8066/api/contactos/3", Contacto.class);
 		return Flux.just(contacto1, contacto2, contacto3);
 	}
+	
 	@GetMapping(path = "/paralelo")
 	public Flux<Contacto> enParalelo() {
 		WebClient client = WebClient.create("http://localhost:8066");
