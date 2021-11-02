@@ -1,0 +1,72 @@
+<h1>Actor</h1>
+<form #miForm="ngForm">
+  <div class="form-row">
+
+    <div class="form-group col-md-2">
+      <label class="form-label" for="id">Código:</label>
+      <input
+        class="form-control"
+        [class.is-invalid]="id.invalid && miForm.dirty"
+        type="number"
+        name="id"
+        id="id"
+        [(ngModel)]="VM.Elemento.id"
+        #id="ngModel"
+        required
+        min="0"
+      />
+      <output class="invalid-feedback" [myShowErrors]="id.errors"></output>
+    </div>
+
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="nombre">Nombre:</label>
+      <input
+        class="form-control"
+        [class.is-invalid]="nombre.invalid"
+        type="text"
+        name="nombre"
+        id="nombre"
+        [(ngModel)]="VM.Elemento.nombre"
+        #nombre="ngModel"
+        required
+        minlength="2"
+        maxlength="50"
+      />
+      <output class="invalid-feedback" [myShowErrors]="nombre.errors"></output>
+
+    </div>
+    <div class="form-group col-md-4">
+      <label class="form-label" for="apellidos">Apellidos:</label>
+      <input
+        class="form-control"
+        [class.is-invalid]="apellidos.invalid"
+        type="text"
+        name="apellidos"
+        id="apellidos"
+        [(ngModel)]="VM.Elemento.apellidos"
+        #apellidos="ngModel"
+        minlength="2"
+        maxlength="50"
+      />
+      <output class="invalid-feedback" [myShowErrors]="apellidos.errors"></output>
+
+    </div>
+
+   <div class="form-group">
+    <input
+      type="button"
+      class="btn btn-success"
+      value="Enviar"
+      (click)="VM.send()"
+      [disabled]="miForm.invalid"
+    />
+    <input
+      type="button"
+      class="btn btn-info"
+      value="Volver"
+      (click)="VM.cancel()"
+    />
+  </div>
+
+</form>

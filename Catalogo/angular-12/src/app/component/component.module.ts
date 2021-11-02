@@ -7,10 +7,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ComponentsRoutes } from './component.routing';
 import { PeliculasComponent } from './pelicula/peliculas.component';
-import { ActoresComponent } from './actor/actor.component';
+import { ActoresAddComponent, ActoresComponent, ActoresEditComponent, ActoresViewComponent } from './actor/actor.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CategoriasComponent } from './categoria/categoria.component';
 import { IdiomaComponent } from './idioma/idioma.component';
+import { MyCoreModule } from 'src/my-core';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { IdiomaComponent } from './idioma/idioma.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MyCoreModule,
     NgxPaginationModule,
   ],
   declarations: [
@@ -26,7 +28,11 @@ import { IdiomaComponent } from './idioma/idioma.component';
     CategoriasComponent,
     IdiomaComponent,
     PeliculasComponent,
-    ActoresComponent
-  ]
+    ActoresComponent,
+    ActoresAddComponent,
+    ActoresEditComponent,
+    ActoresViewComponent
+  ],
+
 })
 export class ComponentsModule {}

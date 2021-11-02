@@ -2,8 +2,9 @@ import { Routes } from '@angular/router';
 
 import { IdiomaComponent } from './idioma/idioma.component';
 import { PeliculasComponent } from './pelicula/peliculas.component';
-import { ActoresComponent, ActoresViewComponent } from './actor/actor.component';
+import { ActoresAddComponent, ActoresComponent, ActoresEditComponent, ActoresViewComponent } from './actor/actor.component';
 import { CategoriasComponent } from './categoria/categoria.component';
+import { AuthGuard } from '../security';
 
 export const ComponentsRoutes: Routes = [
 
@@ -64,5 +65,9 @@ export const ComponentsRoutes: Routes = [
       }
     ]
   },
+
+  { path: 'actor/add', component: ActoresAddComponent },
+  { path: 'actor/:id/edit', component: ActoresEditComponent },
   { path: 'actor/:id', component: ActoresViewComponent },
+
 ];

@@ -9320,3 +9320,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact de.codecentri
 2021-11-02 15:51:17,524 [Worker-96: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2021-11-02 15:51:17,541 [Worker-96: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-11-02 15:51:17,541 [Worker-96: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-11-02 15:51:17,541 [Worker-96: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\curso\FS20210921\microservicios\Catalogo\src\test\resources
