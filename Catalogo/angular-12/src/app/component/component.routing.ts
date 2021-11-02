@@ -4,10 +4,14 @@ import { IdiomaComponent } from './idioma/idioma.component';
 import { PeliculasComponent } from './pelicula/peliculas.component';
 import { ActoresAddComponent, ActoresComponent, ActoresEditComponent, ActoresViewComponent } from './actor/actor.component';
 import { CategoriasComponent } from './categoria/categoria.component';
+import { AuthGuard } from '../security';
+import { FullComponent } from '../layouts/full/full.component';
 
 export const ComponentsRoutes: Routes = [
 
   {
+    path: '',
+
 
     children: [
 
