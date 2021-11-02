@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Product, TopSelling } from './project-data';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { ContactosViewModelService } from './servicios.service';
 
 @Component({
   selector: 'app-project-of-month',
@@ -8,14 +9,15 @@ import { Product, TopSelling } from './project-data';
 })
 export class ProjectOfMonthComponent implements OnInit {
 
-  topSelling: Product[];
 
-  constructor() {
+  constructor(protected vm: ContactosViewModelService) {
 
-    this.topSelling = TopSelling;
   }
-
+  public get VM(): ContactosViewModelService {
+    return this.vm;
+  }
   ngOnInit(): void {
+    this.vm.list();
   }
 
 }
