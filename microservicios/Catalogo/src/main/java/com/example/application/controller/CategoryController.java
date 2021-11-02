@@ -20,6 +20,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.example.domains.contracts.services.ICategoryService;
 import com.example.domains.entities.Category;
+import com.example.domains.entities.dtos.ActorDTO;
 import com.example.exceptions.BadRequestException;
 import com.example.exceptions.DuplicateKeyException;
 import com.example.exceptions.InvalidDataException;
@@ -52,6 +53,15 @@ public class CategoryController {
 				.buildAndExpand(newItem.getCategoryId()).toUri();
 		return ResponseEntity.created(location).build();
 
+	}
+	
+	@GetMapping(path = "/{id}")
+	public Category getOne(@PathVariable int id) throws NotFoundException {
+		var actor = srv.getOne(id);
+		if (actor.isEmpty())
+			throw new NotFoundException();
+		else
+			return actor.get();
 	}
 	
 	@PutMapping("/{id}")

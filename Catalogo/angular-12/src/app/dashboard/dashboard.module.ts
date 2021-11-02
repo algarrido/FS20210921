@@ -9,7 +9,7 @@ import { VisitGraphComponent } from './dashboard-components/visit-graph/visit-gr
 import { WebsiteGraphComponent } from './dashboard-components/website-graph/website-graph.component';
 import { CardsComponent } from './dashboard-components/cards/cards.component';
 import { ProjectOfMonthComponent } from './dashboard-components/project-of-month/project-of-month.component';
-import { FullComponent } from "../layouts/full/full.component";
+
 
 const routes: Routes = [
   {

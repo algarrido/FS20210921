@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { ContactosViewModelService } from './servicios.service';
+import { PeliculasViewModelService } from './servicios.service';
 
 @Component({
   selector: 'app-project-of-month',
@@ -10,10 +10,10 @@ import { ContactosViewModelService } from './servicios.service';
 export class ProjectOfMonthComponent implements OnInit {
 
 
-  constructor(protected vm: ContactosViewModelService) {
+  constructor(protected vm: PeliculasViewModelService) {
 
   }
-  public get VM(): ContactosViewModelService {
+  public get VM(): PeliculasViewModelService {
     return this.vm;
   }
   ngOnInit(): void {

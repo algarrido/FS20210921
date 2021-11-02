@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-md-flex align-items-center">
+      <div>
+        <h4 class="card-title">
+          Catalogo
+        </h4>
+        <h6 class="card-subtitle">Idiomas disponibles:</h6>
+      </div>
+
+  </div>
+  <div class="table-responsive">
+    <table class="table v-middle mb-0">
+      <thead>
+        <tr>
+          <th class="border-top-0 font-medium border-bottom-0"></th>
+          <th class="border-top-0 font-medium border-bottom-0"></th>
+          <th class="border-top-0 font-medium border-bottom-0">Numero</th>
+          <th class="border-top-0 font-medium border-bottom-0"></th>
+          <th class="border-top-0 font-medium border-bottom-0">Categoria</th>
+          <th class="border-top-0 font-medium border-bottom-0"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let ts of VM.Listado | paginate:{itemsPerPage:5,currentPage: page}'>
+
+      <td >
+        </td>
+        <td ></td>
+        <td>{{ts.languageId}}</td>
+        <td>
+        </td>
+        <td>{{ts.nombre}}</td>
+        <td></td>
+        <td>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<pagination-controls (pageChange)="page = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>

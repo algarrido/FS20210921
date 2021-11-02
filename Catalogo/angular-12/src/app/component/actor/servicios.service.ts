@@ -10,9 +10,9 @@ import { ModoCRUD } from 'src/app/base-code/tipos';
 @Injectable({
   providedIn: 'root',
 })
-export class PeliculasDAOService extends RESTDAOService<any, any> {
+export class ActoresDAOService extends RESTDAOService<any, any> {
   constructor(http: HttpClient) {
-    super(http, 'peliculas', {
+    super(http, 'actores', {
       context: new HttpContext().set(AUTH_REQUIRED, true),
     });
   }
@@ -21,8 +21,8 @@ export class PeliculasDAOService extends RESTDAOService<any, any> {
 @Injectable({
   providedIn: 'root',
 })
-export class PeliculasViewModelService {
-  protected listURL = '/peliculas';
+export class ActoresViewModelService {
+  protected listURL = '/actores';
 
   protected modo: ModoCRUD = 'list';
   protected listado: Array<any> = [];
@@ -32,7 +32,7 @@ export class PeliculasViewModelService {
   constructor(
     protected notify: NotificationService,
     protected out: LoggerService,
-    protected dao: PeliculasDAOService,
+    protected dao: ActoresDAOService,
     public auth: AuthService,protected router: Router
   ) {}
 
