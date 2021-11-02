@@ -4,13 +4,10 @@ import { IdiomaComponent } from './idioma/idioma.component';
 import { PeliculasComponent } from './pelicula/peliculas.component';
 import { ActoresAddComponent, ActoresComponent, ActoresEditComponent, ActoresViewComponent } from './actor/actor.component';
 import { CategoriasComponent } from './categoria/categoria.component';
-import { AuthGuard } from '../security';
 
 export const ComponentsRoutes: Routes = [
 
   {
-    path: '',
-
 
     children: [
 
@@ -65,6 +62,7 @@ export const ComponentsRoutes: Routes = [
       }
     ]
   },
+
 
   { path: 'actor/add', component: ActoresAddComponent },
   { path: 'actor/:id/edit', component: ActoresEditComponent },

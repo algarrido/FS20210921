@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { CategoriasViewModelService } from 'src/app/dashboard/dashboard-components/sales-graph/servicios.service';
+import { CategoriasViewModelService } from './servicios.service';
 
 @Component({
   selector: 'app-categoria',

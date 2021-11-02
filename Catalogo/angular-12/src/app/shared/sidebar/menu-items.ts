@@ -2,7 +2,7 @@ import { RouteInfo } from './sidebar.metadata';
 
 export const ROUTES: RouteInfo[] = [
   {
-    path: '', //aqui la configuracion del usuario
+    path: '', //aqui la ruta de configuracion del usuario
     title: 'Personal',
     icon: 'mdi mdi-dots-horizontal',
     class: 'nav-small-cap',
