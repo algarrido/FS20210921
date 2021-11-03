@@ -1,10 +1,11 @@
 # Proyecto Final 
 
-_Acá va un párrafo que describa lo que es el proyecto_
+Proyecto catalogo, donde nos mostrará una lista de peliculas, actores, idiomas disponibles y categorias
 
 ## Comenzando 🚀
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+_Clona el proyecto o descarga el zip en tu maquina local, abre el directorio y comienza a descargar las dependencias (npm i)..
+Una vez terminado ya puedes ejecutar el proyecto y... ¡A DISFRUTAR!_
 
 ---
 ⌨️ con ❤️ por [Lidia](https://github.com/algarrido) 😊
